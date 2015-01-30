@@ -1,0 +1,72 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+body {
+    background: #E5F1FF;
+}
+
+.wrapper {
+    background: #fff;
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    width: 75%;
+}
+
+// Styles for Accordion
+
+dl {
+    background: #000099;  // Please change color here for CI
+    color: #fff;         // Please change color here for CI
+    padding: 20px;
+
+    dt {
+        padding: 0 0 30px;
+
+        &:last-of-type {
+            padding: 0;
+        }
+
+        h1 {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 18px;
+            line-height: 20px;
+
+            a {
+                color: #fff; // Please change color here for CI
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    dd {
+        max-height: 0;
+        overflow: hidden;
+        -webkit-transition: max-height 0.3s ease-out;
+        -moz-transition: max-height 0.3s ease-out;
+        -o-transition: max-height 0.3s ease-out;
+        -ms-transition: max-height 0.3s ease-out;
+        transition: max-height 0.3s ease-out;
+
+        &:target {
+            max-height: 200px;
+        }
+
+        hr {
+            border: 1px solid rgba(255, 255, 255, 0.41); // Please change color here for CI
+        }
+
+        p {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            padding: 20px 30px 50px;
+        }
+    }
+}
