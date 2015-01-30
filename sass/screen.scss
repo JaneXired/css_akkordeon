@@ -48,10 +48,16 @@ dl {
   }
 
   dd {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.3s ease-out;
+    -moz-transition: max-height 0.3s ease-out;
+    -o-transition: max-height 0.3s ease-out;
+    -ms-transition: max-height 0.3s ease-out;
+    transition: max-height 0.3s ease-out;
 
     &:target {
-      display: block;
+      max-height: 200px;
     }
 
     hr {
