@@ -43,14 +43,16 @@ dl {
     dd {
         max-height: 0;
         overflow: hidden;
-        -webkit-transition: max-height 0.3s ease-out;
-        -moz-transition: max-height 0.3s ease-out;
-        -o-transition: max-height 0.3s ease-out;
-        -ms-transition: max-height 0.3s ease-out;
-        transition: max-height 0.3s ease-out;
+        padding: 0;
+
+        -webkit-transition: max-height 0.4s ease-out;
+        -moz-transition: max-height 0.4s ease-out;
+        -o-transition: max-height 0.4s ease-out;
+        -ms-transition: max-height 0.4s ease-out;
+        transition: max-height 0.4s ease-out;
 
         &:target {
-            max-height: 200px;
+            max-height: 200px; // change if text is to long
         }
 
         hr {
@@ -61,7 +63,7 @@ dl {
             font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
             font-size: 14px;
             line-height: 20px;
-            padding: 20px 30px 50px;
+            padding: 20px 0 50px;
         }
     }
 }
