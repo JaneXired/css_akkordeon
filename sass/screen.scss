@@ -35,11 +35,24 @@ dl {
       font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
       font-size: 18px;
       line-height: 20px;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 
   dd {
     display: none;
+
+    &:target {
+      display: block;
+    }
 
     hr {
       border: 1px solid rgba(255, 255, 255, 0.41); // Please change color here for CI

@@ -101,15 +101,28 @@ dl dt h1 {
   font-size: 18px;
   line-height: 20px;
 }
-/* line 41, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
+dl dt h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 43, ../sass/screen.scss */
+dl dt h1 a:hover {
+  text-decoration: underline;
+}
+/* line 50, ../sass/screen.scss */
 dl dd {
   display: none;
 }
-/* line 44, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
+dl dd:target {
+  display: block;
+}
+/* line 57, ../sass/screen.scss */
 dl dd hr {
   border: 1px solid rgba(255, 255, 255, 0.41);
 }
-/* line 48, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 dl dd p {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
