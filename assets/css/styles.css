@@ -31,6 +31,57 @@ dl {
       line-height: 20px;
       padding: 20px 0 50px; }
 
+.overImg {
+  width: 499px;
+  height: 469px; }
+  .overImg #topLeftCorner, .overImg #topRightCorner, .overImg .bottomLeftCorner, .overImg #bottomRightCorner {
+    background-image: url("http://img-9gag-ftw.9cache.com/photo/a6ymjP8_700b.jpg");
+    background-repeat: no-repeat;
+    width: 49%;
+    height: 50%;
+    float: left;
+    border: 1px solid #333;
+    overflow: hidden; }
+    .overImg #topLeftCorner button, .overImg #topRightCorner button, .overImg .bottomLeftCorner button, .overImg #bottomRightCorner button {
+      display: none; }
+  .overImg #topRightCorner, .overImg #bottomRightCorner {
+    padding-left: 6px; }
+  .overImg #topRightCorner {
+    background-position-x: -246px; }
+  .overImg .bottomLeftCorner {
+    background-position-y: -232px; }
+  .overImg #bottomRightCorner {
+    background-position: -241px -232px; }
+  .overImg #topLeftCorner:target {
+    /* IE 9 */
+    -webkit-transform: scale(2, 2);
+    /* Chrome, Safari, Opera */
+    transform: scale(2, 2);
+    /* Standard syntax */
+    position: relative;
+    top: 117px;
+    left: 123px; }
+    .overImg #topLeftCorner:target button {
+      display: block; }
+  .overImg #topRightCorner:target {
+    /* IE 9 */
+    -webkit-transform: scale(2, 2);
+    /* Chrome, Safari, Opera */
+    transform: scale(2, 2);
+    /* Standard syntax */
+    position: relative;
+    top: 117px;
+    right: 123px; }
+  .overImg #bottomRightCorner:target {
+    /* IE 9 */
+    -webkit-transform: scale(2, 2);
+    /* Chrome, Safari, Opera */
+    transform: scale(2, 2);
+    /* Standard syntax */
+    position: relative;
+    top: -118px;
+    right: 123px; }
+
 body {
   background: #E5F1FF; }
 
