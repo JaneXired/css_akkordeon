@@ -1,0 +1,259 @@
+//vars
+$fg: #e91e63;
+
+//config
+$menu-items: 6+1;
+$open-distance: 200px;
+$opening-angle: pi();
+$spacing: 8px;
+
+.menu-wrapper {
+  position: relative;
+  display: block;
+  margin-top: 5em;
+  height: 20em;
+}
+
+%goo{
+  filter: url('#goo');
+}
+
+%position-right {
+  right: 0;
+}
+
+%position-left {
+  left: 0;
+}
+
+%ball-animation {
+  transform: translate3d(0,0,0);
+  transition: transform ease-out 1s;
+  will-change: transform;
+}
+
+%ball{
+  background: $fg;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  margin: 0 1.5%;
+  position: absolute;
+  top: 20px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+
+  svg {
+    fill: white;
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.line{
+  width: 20px;
+  height: 3px;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: transform 1s;
+  will-change: transform;
+}
+
+.line-1{
+  transform: translate3d(-50%,-$spacing,0);
+}
+.line-2{
+  transform: translate3d(-50%,0,0);
+}
+.line-3{
+  transform: translate3d(-50%,$spacing,0);
+}
+
+// right menu
+.menu-item{
+  @extend %ball;
+  @extend %ball-animation;
+  @extend %position-right;
+}
+
+.menu-open{
+  display: none;
+}
+
+.menu-open:checked+.menu-open-button{
+  .line-1{
+    transform: translate3d(-50%,0,0) rotate(45deg);
+  }
+  .line-2{
+    transform: translate3d(-50%,0,0) scale(0.1,1);
+  }
+  .line-3{
+    transform: translate3d(-50%,0,0) rotate(-45deg);
+  }
+}
+
+.menu-right {
+  @extend %goo;
+  $width: 380px;
+  $height: 250px;
+  position: fixed;
+  top: 2.5%;
+  right: 2.5%;
+  margin-left: -$width/2;
+  padding-top: 20px;
+  padding-left: $width/2;
+  width: $width;
+  height: $height;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: left;
+}
+
+.menu-item{
+  &:hover{
+    background: black;
+    color: $fg;
+  }
+  @for $i from 1 through $menu-items{
+    &:nth-child(#{$i+2}){
+      transition-duration: 500ms;
+    }
+  }
+}
+
+.menu-open-button{
+  @extend %ball;
+  @extend %position-right;
+  @extend %ball-animation;
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration: 1s;
+  transform: scale(1,1) translate3d(0,0,0);
+  cursor: pointer;
+}
+
+.menu-open-button:hover{
+  animation: pulse 1s ease-in-out infinite;
+  background: black;
+}
+.menu-open:checked+.menu-open-button{
+  transition-timing-function: linear;
+  transition-duration: 1s;
+
+  transform: scale(1,1) translate3d(0,0,0);
+}
+
+.menu-open:checked~.menu-item{
+  transition-timing-function:cubic-bezier(0.935, 0.000, 0.340, 1.330);
+  @for $i from 1 through $menu-items{
+    $angle:(($opening-angle * -1)/1.5)+(($opening-angle/($menu-items - 1))*($i - 1));
+
+    &:nth-child(#{$i+2}){
+      transition-duration:80ms+(80ms*$i);
+      transform:translate3d(cos($angle)*$open-distance * -1 - $open-distance / 2,sin($angle)* $open-distance * -1 + $open-distance / 2,0);
+    }
+  }
+}
+
+// left menu
+.menu-left-down {
+  @extend %goo;
+  $width: 380px;
+  $height: 250px;
+  position: fixed;
+  top: 2.5%;
+  left: 2.5%;
+  padding-top: 20px;
+  padding-left: $width/2;
+  width: $width;
+  height: $height;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: left;
+}
+
+.menu-item-down{
+  @extend %ball;
+  @extend %position-left;
+  @extend %ball-animation;
+}
+
+.menu-item-down{
+  &:hover{
+    background: black;
+    color: $fg;
+  }
+  @for $i from 1 through $menu-items{
+    &:nth-child(#{$i+2}){
+      transition-duration: 500ms;
+    }
+  }
+}
+
+.menu-open-down:checked+.menu-open-button-down{
+  .line-1{
+    transform: translate3d(-50%,0,0) rotate(45deg);
+  }
+  .line-2{
+    transform: translate3d(-50%,0,0) scale(0.1,1);
+  }
+  .line-3{
+    transform: translate3d(-50%,0,0) rotate(-45deg);
+  }
+}
+
+.menu-open-down {
+  display: none;
+}
+
+.menu-open-button-down {
+  @extend %ball;
+  @extend %position-left;
+  @extend %ball-animation;
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration: 1s;
+  transform: scale(1,1) translate3d(0,0,0);
+  cursor: pointer;
+}
+
+.menu-open-button-down:hover{
+  animation: pulse 1s ease-in-out infinite;
+  background: black;
+}
+.menu-open-down:checked+.menu-open-button-down{
+  transition-timing-function: linear;
+  transition-duration: 1s;
+  transform: scale(1,1) translate3d(0,0,0);
+}
+
+.menu-open-down:checked~.menu-item-down{
+  transition-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  @for $i from 1 through $menu-items{
+
+    &:nth-child(#{$i+2}){
+      transition-duration:500ms+(100ms*$i);
+      transform:translate3d(0,110px*$i,0);
+    }
+  }
+}
+
+@keyframes pulse{
+  0% {
+    transform: scale(1,1)
+  }
+  30% {
+    transform: scale(1.1,1.1);
+  }
+  100% {
+    transform: scale(1,1)
+  }
+}

@@ -88,8 +88,7 @@ module.exports = function (grunt) {
             options: {
                 spawn: false,
                 interrupt: false,
-                interval: 5007,
-                debounceDelay: 200
+                debounceDelay: 50
             },
             sass: {
                 files: [
