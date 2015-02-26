@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/Vagrantfile" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/_dev/styles/partials/_akkordeon.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/_dev/styles/partials/_base.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/_dev/styles/partials/_svg-menu.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/_dev/styles/styles.scss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/_vagrant/bootstrap.sh" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/package.json" charset="UTF-8" />
@@ -13,5 +14,6 @@
     <file url="file://$PROJECT_DIR$/site/snippets/footer.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/site/snippets/header.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/site/templates/home.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../vaillant-go-digital/site/snippets/footer.php" charset="UTF-8" />
   </component>
 </project>
