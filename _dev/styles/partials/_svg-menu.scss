@@ -8,10 +8,10 @@ $opening-angle: pi();
 $spacing: 8px;
 
 .menu-wrapper {
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
   display: block;
-  margin-top: 5em;
-  height: 20em;
 }
 
 %goo{

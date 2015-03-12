@@ -97,10 +97,10 @@ body {
   width: 75%; }
 
 .menu-wrapper {
-  position: relative;
-  display: block;
-  margin-top: 5em;
-  height: 20em; }
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: block; }
 
 .menu-right, .menu-left-down {
   -webkit-filter: url('#goo');
@@ -416,4 +416,184 @@ body {
   100% {
     -webkit-transform: scale(1, 1);
             transform: scale(1, 1); } }
+
+.accordion-container {
+  margin: 2.5% 0;
+  width: 50%;
+  height: 500px;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: left; }
+
+.accordion-container input {
+  display: none; }
+
+.accordion-container article {
+  padding: 2.5%;
+  margin-top: -1px;
+  overflow: hidden;
+  height: 10em;
+  width: 100%;
+  position: absolute;
+  top: 57.75px;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 1s;
+          transition: transform 1s; }
+
+.accordion-container article p {
+  margin: 0;
+  color: black;
+  line-height: 23px;
+  font-size: 14px; }
+
+.accordion-container label {
+  padding: 2.5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  display: block;
+  border: 1px solid black;
+  cursor: pointer;
+  color: black;
+  line-height: 33px;
+  font-size: 1.5rem;
+  background: #ffffff; }
+
+.accordion-container label:hover {
+  background: blue;
+  color: white; }
+
+.accordion-container input:checked + label, .accordion-container input:checked + label:hover {
+  background: blue;
+  color: white; }
+
+.accordion-container label:hover:after, .accordion-container input:checked + label:hover:after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 13px;
+  top: 7px; }
+
+
+.accordion-container #ac-0:checked ~ article:not(0) {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s; }
+
+.accordion-container #ac-0 ~ label {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px); }
+
+.accordion-container #ac-0:checked ~ .accordion-container #ac-0:not(:checked) ~ article:not(:nth-of-type(0)), .accordion-container #ac-0:checked ~ .accordion-container #ac-0:not(:checked) ~ label:not(:nth-of-type(0)) {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px); }
+
+.accordion-container #ac-0:checked ~ article:nth-of-type(0) {
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+  border: 1px solid blue;
+  opacity: 1; }
+
+.accordion-container #ac-1:checked ~ article:not(1) {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s; }
+
+.accordion-container #ac-1 ~ label {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(75px);
+          transform: translateY(75px); }
+
+.accordion-container #ac-1:checked ~ .accordion-container #ac-1:not(:checked) ~ article:not(:nth-of-type(1)), .accordion-container #ac-1:checked ~ .accordion-container #ac-1:not(:checked) ~ label:not(:nth-of-type(1)) {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(140px);
+          transform: translateY(140px); }
+
+.accordion-container #ac-1:checked ~ article:nth-of-type(1) {
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+  border: 1px solid blue;
+  opacity: 1; }
+
+.accordion-container #ac-2:checked ~ article:not(2) {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s; }
+
+.accordion-container #ac-2 ~ label {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(150px);
+          transform: translateY(150px); }
+
+.accordion-container #ac-2:checked ~ .accordion-container #ac-2:not(:checked) ~ article:not(:nth-of-type(2)), .accordion-container #ac-2:checked ~ .accordion-container #ac-2:not(:checked) ~ label:not(:nth-of-type(2)) {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(280px);
+          transform: translateY(280px); }
+
+.accordion-container #ac-2:checked ~ article:nth-of-type(2) {
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+  border: 1px solid blue;
+  opacity: 1; }
+
+.accordion-container #ac-3:checked ~ article:not(3) {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s; }
+
+.accordion-container #ac-3 ~ label {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(225px);
+          transform: translateY(225px); }
+
+.accordion-container #ac-3:checked ~ .accordion-container #ac-3:not(:checked) ~ article:not(:nth-of-type(3)), .accordion-container #ac-3:checked ~ .accordion-container #ac-3:not(:checked) ~ label:not(:nth-of-type(3)) {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(420px);
+          transform: translateY(420px); }
+
+.accordion-container #ac-3:checked ~ article:nth-of-type(3) {
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+  border: 1px solid blue;
+  opacity: 1; }
+
+.accordion-container #ac-4:checked ~ article:not(4) {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s; }
+
+.accordion-container #ac-4 ~ label {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(300px);
+          transform: translateY(300px); }
+
+.accordion-container #ac-4:checked ~ .accordion-container #ac-4:not(:checked) ~ article:not(:nth-of-type(4)), .accordion-container #ac-4:checked ~ .accordion-container #ac-4:not(:checked) ~ label:not(:nth-of-type(4)) {
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  -webkit-transform: translateY(560px);
+          transform: translateY(560px); }
+
+.accordion-container #ac-4:checked ~ article:nth-of-type(4) {
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+  border: 1px solid blue;
+  opacity: 1; }
 /*# sourceMappingURL=styles.css.map */

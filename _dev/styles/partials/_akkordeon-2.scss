@@ -1,0 +1,105 @@
+$accordion-open: 140px;
+$accordion-closed: 75px;
+$accordion-items: 4;
+$label-height: 35px;
+
+.accordion-container {
+  margin: 2.5% 0;
+  width: 50%;
+  height: 500px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+}
+
+.accordion-container input {
+  display: none;
+}
+
+.accordion-container article {
+  padding: 2.5%;
+  margin-top: -1px;
+  overflow: hidden;
+  height: 10em;
+  width: 100%;
+  position: absolute;
+  top: $label-height * 1.65;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  transition: transform 1s;
+}
+
+.accordion-container article p {
+  margin: 0;
+  color: black;
+  line-height: 23px;
+  font-size: 14px;
+}
+
+.accordion-container label {
+  padding: 2.5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  display: block;
+  border: 1px solid black;
+  cursor: pointer;
+  color: black;
+  line-height: 33px;
+  font-size: 1.5rem;
+  background: #ffffff;
+}
+
+.accordion-container label:hover {
+  background: blue;
+  color: white;
+}
+
+.accordion-container input:checked + label,
+.accordion-container input:checked + label:hover {
+  background: blue;
+  color: white;
+}
+
+.accordion-container label:hover:after,
+.accordion-container input:checked + label:hover:after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 13px;
+  top: 7px;
+}
+
+.accordion-container input:checked + label:hover:after {
+}
+
+@for $i from 0 through $accordion-items {
+  .accordion-container #ac-#{$i}:checked ~ article:not(#{$i}){
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .accordion-container #ac-#{$i} ~ label{
+    transition: transform 0.5s;
+    transform: translateY($i * $accordion-closed);
+  }
+
+  .accordion-container #ac-#{$i}:checked ~ .accordion-container #ac-#{$i}:not(:checked) ~ article:not(:nth-of-type(#{$i})),
+  .accordion-container #ac-#{$i}:checked ~ .accordion-container #ac-#{$i}:not(:checked) ~ label:not(:nth-of-type(#{$i})){
+    transition: transform 0.5s;
+    transform: translateY($i * $accordion-open);
+  }
+
+  .accordion-container #ac-#{$i}:checked ~ article:nth-of-type(#{$i}){
+    transition: opacity 0.5s;
+    border: 1px solid blue;
+    opacity: 1;
+  }
+}
+
+
