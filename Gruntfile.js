@@ -114,7 +114,7 @@ module.exports = function (grunt) {
     grunt.registerTask('css', [
         'libsass',
         'autoprefixer',
-        'cssmin',
+        //'cssmin',
         'lineending:css'
     ]);
     grunt.registerTask('browsersync', [
