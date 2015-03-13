@@ -1,19 +1,14 @@
-$label-offset: 85px;
-$tab-size: 50px;
-$article-label-offset: 120px;
+$article-size: 110px; // 10vh
 $accordion-items: 4;
-$label-height: 35px;
+$label-height: 70px;
 
-$white: rgba(254,255,250,1);
-$grey: rgba(220,231,235,1);
 $red: rgba(175,0,0,1);
-$black: rgba(48,69,92,0.8);
 $sans: 'Titillium Web', sans-serif;
 
 .accordion-container {
     font-family: $sans;
     width: 100%;
-    height: 1000px;
+    height: 65vh;
     position: relative;
     margin: 10% auto;
     text-align: left;
@@ -39,7 +34,6 @@ $sans: 'Titillium Web', sans-serif;
     }
 }
 
-
 .accordion-container i {
     transition: transform 0.5s;
     position: absolute;
@@ -48,7 +42,8 @@ $sans: 'Titillium Web', sans-serif;
     right: 5%;
     backface-visibility: hidden;
 
-    &:before {
+    &:before,
+    &:after {
         transition: transform 0.5s;
         content: '';
         position: absolute;
@@ -56,18 +51,14 @@ $sans: 'Titillium Web', sans-serif;
         background-color: #ff6873;
         width: 7.5px;
         height: 27px;
-        transform: translateX(7.5px) translateY(-50%) rotate( 45deg )
+    }
+
+    &:before {
+        transform: translateX(7.5px) translateY(-50%) rotate(45deg)
     }
 
     &:after {
-        transition: transform 0.5s;
-        content: "";
-        position: absolute;
-        background-color: #ff6873;
-        top: 50%;
-        width: 7.5px;
-        height: 27px;
-        transform: translateX(-7.5px) translateY(-50%)rotate( -45deg )
+        transform: translateX(-7.5px) translateY(-50%)rotate(-45deg)
     }
 }
 
@@ -77,41 +68,53 @@ $sans: 'Titillium Web', sans-serif;
 
 .accordion-container article {
     background: lightcoral;
-    padding: 2.5%;
-    margin-top: -1px;
     overflow: hidden;
-    height: $tab-size;
-    width: 95%;
+    height: $article-size;
+    width: 100%;
     position: absolute;
-    top: $label-height * 1.65;
     left: 0;
-    z-index: 10;
     box-shadow: inset 0 0 1px $red;
     opacity: 0;
-    transition: transform 1s;
 }
 
 .accordion-container article p {
+    padding: 1.5% 2.5%;
     margin: 0;
     color: white;
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .accordion-container label {
     user-select: none;
     padding: 2.5%;
     position: absolute;
-    top: 0;
     left: 0;
+    z-index: $accordion-items + 1;
     width: 95%;
-    z-index: 20;
     display: block;
     cursor: pointer;
     color: $red;
-    filter: drop-shadow(0px 0px 1px rgba(255,0,0,0.8));
-    font-size: 1.25rem;
+    filter: drop-shadow(0 -1px 2px rgba(255,0,0,0.3));
+    font-size: 1.15rem;
     background-color: #ffffff;
 }
+@for $i from 1 through $accordion-items {
+    .accordion-container label:nth-of-type(#{$i+1}) {
+        margin-top: $i * -1.5%;
+    }
+
+    .accordion-container article:nth-of-type(#{$i+1}) {
+        margin-top: $i * -1.5%;
+    }
+}
+
+@for $i from 1 through $accordion-items {
+
+    .accordion-container article:nth-of-type(#{$i}) {
+        z-index: $accordion-items - $i;
+    }
+}
+
 
 .accordion-container label:hover {
     background-color: $red;
@@ -124,87 +127,81 @@ $sans: 'Titillium Web', sans-serif;
     color: white;
 }
 
-@for $i from 0 through $accordion-items {
+@for $i from 1 through $accordion-items {
 
     .accordion-container label[for=ac-#{$i}] {
-        top: ($i * $label-offset);
-        transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s,  background-color 0.3s;
+        top: (($i - 1) * $label-height);
+        transition: opacity 0.25s, transform 0.5s, background-color 0.3s;
     }
 
     .accordion-container article.ac-small-#{$i} {
-        top: ($i * $label-offset);
-        transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s;
+        top: (($i - 1) * $label-height);
+        transition: opacity 0.25s, transform 0.5s;
     }
 
     .accordion-container #ac-#{$i}:checked ~ article.ac-small-#{$i} {
-        transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s;
+        transition: opacity 0.25s, transform 0.5s;
         opacity: 1;
     }
-    // needs to be refactored with line 114-116
+
+    // standard behaviour if one is selected
     .accordion-container #ac-#{$i}:checked ~ article:not(ac-small-#{$i}) {
-        transform: translateY($label-offset);
+        transform: translateY($label-height);
     }
     // 2 checked
     .accordion-container #ac-#{$i}:checked ~ input:checked:not(#ac-#{$i}) ~ article:not(ac-small-#{$i}) {
-        transform: translateY($tab-size + $label-offset * 2);
+        transform: translateY($article-size * 1 + $label-height);
     }
-
     // 3
     .accordion-container #ac-#{$i}:checked ~ input:checked:not(#ac-#{$i}) ~ input:checked:not(#ac-#{$i}) ~ article:not(ac-small-#{$i}){
-        transform: translateY($tab-size * 2 + $label-offset * 3);
+        transform: translateY($article-size * 2 + $label-height);
     }
     // 4
     .accordion-container #ac-#{$i}:checked ~ input:checked:not(#ac-#{$i}) ~ input:checked:not(#ac-#{$i}) ~ input:checked:not(#ac-#{$i}) ~ article:not(ac-small-#{$i}){
-        transform: translateY($tab-size * 3 + $label-offset * 4);
+        transform: translateY($article-size * 3 + $label-height);
     }
 
     // general behaviour when one tab is opened
     .accordion-container #ac-#{$i}:checked ~ input:not(#ac-#{$i}) + label {
-        transform: translateY($tab-size + $label-offset);
+        transform: translateY($article-size);
     }
 
     // if 2 are checked
     .accordion-container #ac-#{$i}:checked ~ input:checked:not(#ac-#{$i}) + label{
-        transform: translateY($tab-size +  $label-offset);
+        transform: translateY($article-size * 1);
     }
     // 3
     .accordion-container #ac-#{$i}:checked ~ input:checked:not(#ac-#{$i}) ~  input:checked:not(#ac-#{$i}) + label{
-        transform: translateY($tab-size * 2 + $label-offset * 2);
+        transform: translateY($article-size * 2);
     }
-
     // 4
     .accordion-container #ac-#{$i}:checked ~ input:checked:not(#ac-#{$i}) ~  input:checked:not(#ac-#{$i}) ~ input:checked:not(#ac-#{$i}) + label{
-        transform: translateY($tab-size * 3 + $label-offset * 3);
+        transform: translateY($article-size * 3);
     }
 
     // if the bottom one isnt checked, push it with the flock
     .accordion-container #ac-#{$i}:checked ~ input:checked:not(#ac-#{$i}) ~  input:not(#ac-#{$i}) + label{
-        transform: translateY($tab-size * 2 + $label-offset * 2);
+        transform: translateY($article-size * 2);
     }
 
     .accordion-container #ac-#{$i}:checked ~ input:checked:not(#ac-#{$i}) ~ input:checked:not(#ac-#{$i}) ~  input:not(#ac-#{$i}) + label{
-        transform: translateY($tab-size * 3 + $label-offset * 3);
+        transform: translateY($article-size * 3);
     }
 
     .accordion-container #ac-#{$i}:checked ~ label i {
         &:before {
-            content: '';
             transform: translateX(7.5px) translateY(-50%) rotate(-45deg)
         }
         &:after {
-            content: "";
             transform: translateX(-7.5px) translateY(-50%) rotate(45deg)
         }
     }
 
     .accordion-container #ac-#{$i}:not(:checked) ~ label i {
         &:before {
-            content: '';
             transform: translateX(7.5px) translateY(-50%) rotate(45deg)
         }
-
         &:after {
-            content: "";
             transform: translateX(-7.5px) translateY(-50%) rotate(-45deg)
         }
     }

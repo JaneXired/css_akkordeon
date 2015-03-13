@@ -421,7 +421,7 @@ body {
 .accordion-container {
   font-family: 'Titillium Web', sans-serif;
   width: 100%;
-  height: 1000px;
+  height: 65vh;
   position: relative;
   margin: 10% auto;
   text-align: left; }
@@ -454,7 +454,7 @@ body {
   right: 5%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden; }
-  .accordion-container i:before {
+  .accordion-container i:before, .accordion-container i:after {
     -webkit-transition: -webkit-transform 0.5s;
             transition: transform 0.5s;
     content: '';
@@ -462,18 +462,11 @@ body {
     top: 50%;
     background-color: #ff6873;
     width: 7.5px;
-    height: 27px;
+    height: 27px; }
+  .accordion-container i:before {
     -webkit-transform: translateX(7.5px) translateY(-50%) rotate(45deg);
             transform: translateX(7.5px) translateY(-50%) rotate(45deg); }
   .accordion-container i:after {
-    -webkit-transition: -webkit-transform 0.5s;
-            transition: transform 0.5s;
-    content: "";
-    position: absolute;
-    background-color: #ff6873;
-    top: 50%;
-    width: 7.5px;
-    height: 27px;
     -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(-45deg);
             transform: translateX(-7.5px) translateY(-50%) rotate(-45deg); }
 
@@ -482,24 +475,19 @@ body {
 
 .accordion-container article {
   background: lightcoral;
-  padding: 2.5%;
-  margin-top: -1px;
   overflow: hidden;
-  height: 50px;
-  width: 95%;
+  height: 110px;
+  width: 100%;
   position: absolute;
-  top: 57.75px;
   left: 0;
-  z-index: 10;
   box-shadow: inset 0 0 1px #af0000;
-  opacity: 0;
-  -webkit-transition: -webkit-transform 1s;
-          transition: transform 1s; }
+  opacity: 0; }
 
 .accordion-container article p {
+  padding: 1.5% 2.5%;
   margin: 0;
   color: white;
-  font-size: 14px; }
+  font-size: 1rem; }
 
 .accordion-container label {
   -webkit-user-select: none;
@@ -508,17 +496,52 @@ body {
           user-select: none;
   padding: 2.5%;
   position: absolute;
-  top: 0;
   left: 0;
+  z-index: 5;
   width: 95%;
-  z-index: 20;
   display: block;
   cursor: pointer;
   color: #af0000;
-  -webkit-filter: drop-shadow(0px 0px 1px rgba(255, 0, 0, 0.8));
-          filter: drop-shadow(0px 0px 1px rgba(255, 0, 0, 0.8));
-  font-size: 1.25rem;
+  -webkit-filter: drop-shadow(0 -1px 2px rgba(255, 0, 0, 0.3));
+          filter: drop-shadow(0 -1px 2px rgba(255, 0, 0, 0.3));
+  font-size: 1.15rem;
   background-color: #ffffff; }
+
+.accordion-container label:nth-of-type(2) {
+  margin-top: -1.5%; }
+
+.accordion-container article:nth-of-type(2) {
+  margin-top: -1.5%; }
+
+.accordion-container label:nth-of-type(3) {
+  margin-top: -3%; }
+
+.accordion-container article:nth-of-type(3) {
+  margin-top: -3%; }
+
+.accordion-container label:nth-of-type(4) {
+  margin-top: -4.5%; }
+
+.accordion-container article:nth-of-type(4) {
+  margin-top: -4.5%; }
+
+.accordion-container label:nth-of-type(5) {
+  margin-top: -6%; }
+
+.accordion-container article:nth-of-type(5) {
+  margin-top: -6%; }
+
+.accordion-container article:nth-of-type(1) {
+  z-index: 3; }
+
+.accordion-container article:nth-of-type(2) {
+  z-index: 2; }
+
+.accordion-container article:nth-of-type(3) {
+  z-index: 1; }
+
+.accordion-container article:nth-of-type(4) {
+  z-index: 0; }
 
 .accordion-container label:hover {
   background-color: #af0000;
@@ -528,368 +551,279 @@ body {
   background: #af0000;
   color: white; }
 
-.accordion-container label[for=ac-0] {
-  top: 0px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s, background-color 0.3s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s, background-color 0.3s; }
-
-.accordion-container article.ac-small-0 {
-  top: 0px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s; }
-
-.accordion-container #ac-0:checked ~ article.ac-small-0 {
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s;
-  opacity: 1; }
-
-.accordion-container #ac-0:checked ~ article:not(ac-small-0) {
-  -webkit-transform: translateY(85px);
-          transform: translateY(85px); }
-
-.accordion-container #ac-0:checked ~ input:checked:not(#ac-0) ~ article:not(ac-small-0) {
-  -webkit-transform: translateY(220px);
-          transform: translateY(220px); }
-
-.accordion-container #ac-0:checked ~ input:checked:not(#ac-0) ~ input:checked:not(#ac-0) ~ article:not(ac-small-0) {
-  -webkit-transform: translateY(355px);
-          transform: translateY(355px); }
-
-.accordion-container #ac-0:checked ~ input:checked:not(#ac-0) ~ input:checked:not(#ac-0) ~ input:checked:not(#ac-0) ~ article:not(ac-small-0) {
-  -webkit-transform: translateY(490px);
-          transform: translateY(490px); }
-
-.accordion-container #ac-0:checked ~ input:not(#ac-0) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-0:checked ~ input:checked:not(#ac-0) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-0:checked ~ input:checked:not(#ac-0) ~ input:checked:not(#ac-0) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
-
-.accordion-container #ac-0:checked ~ input:checked:not(#ac-0) ~ input:checked:not(#ac-0) ~ input:checked:not(#ac-0) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
-
-.accordion-container #ac-0:checked ~ input:checked:not(#ac-0) ~ input:not(#ac-0) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
-
-.accordion-container #ac-0:checked ~ input:checked:not(#ac-0) ~ input:checked:not(#ac-0) ~ input:not(#ac-0) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
-
-.accordion-container #ac-0:checked ~ label i:before {
-  content: '';
-  -webkit-transform: translateX(7.5px) translateY(-50%) rotate(-45deg);
-          transform: translateX(7.5px) translateY(-50%) rotate(-45deg); }
-.accordion-container #ac-0:checked ~ label i:after {
-  content: "";
-  -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(45deg);
-          transform: translateX(-7.5px) translateY(-50%) rotate(45deg); }
-
-.accordion-container #ac-0:not(:checked) ~ label i:before {
-  content: '';
-  -webkit-transform: translateX(7.5px) translateY(-50%) rotate(45deg);
-          transform: translateX(7.5px) translateY(-50%) rotate(45deg); }
-.accordion-container #ac-0:not(:checked) ~ label i:after {
-  content: "";
-  -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(-45deg);
-          transform: translateX(-7.5px) translateY(-50%) rotate(-45deg); }
-
 .accordion-container label[for=ac-1] {
-  top: 85px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s, background-color 0.3s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s, background-color 0.3s; }
+  top: 0px;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, background-color 0.3s;
+          transition: opacity 0.25s, transform 0.5s, background-color 0.3s; }
 
 .accordion-container article.ac-small-1 {
-  top: 85px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s; }
+  top: 0px;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s;
+          transition: opacity 0.25s, transform 0.5s; }
 
 .accordion-container #ac-1:checked ~ article.ac-small-1 {
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s;
+          transition: opacity 0.25s, transform 0.5s;
   opacity: 1; }
 
 .accordion-container #ac-1:checked ~ article:not(ac-small-1) {
-  -webkit-transform: translateY(85px);
-          transform: translateY(85px); }
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px); }
 
 .accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ article:not(ac-small-1) {
+  -webkit-transform: translateY(180px);
+          transform: translateY(180px); }
+
+.accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) ~ article:not(ac-small-1) {
+  -webkit-transform: translateY(290px);
+          transform: translateY(290px); }
+
+.accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) ~ article:not(ac-small-1) {
+  -webkit-transform: translateY(400px);
+          transform: translateY(400px); }
+
+.accordion-container #ac-1:checked ~ input:not(#ac-1) + label {
+  -webkit-transform: translateY(110px);
+          transform: translateY(110px); }
+
+.accordion-container #ac-1:checked ~ input:checked:not(#ac-1) + label {
+  -webkit-transform: translateY(110px);
+          transform: translateY(110px); }
+
+.accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) + label {
   -webkit-transform: translateY(220px);
           transform: translateY(220px); }
 
-.accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) ~ article:not(ac-small-1) {
-  -webkit-transform: translateY(355px);
-          transform: translateY(355px); }
-
-.accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) ~ article:not(ac-small-1) {
-  -webkit-transform: translateY(490px);
-          transform: translateY(490px); }
-
-.accordion-container #ac-1:checked ~ input:not(#ac-1) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-1:checked ~ input:checked:not(#ac-1) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
-
 .accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
+  -webkit-transform: translateY(330px);
+          transform: translateY(330px); }
 
 .accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:not(#ac-1) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
+  -webkit-transform: translateY(220px);
+          transform: translateY(220px); }
 
 .accordion-container #ac-1:checked ~ input:checked:not(#ac-1) ~ input:checked:not(#ac-1) ~ input:not(#ac-1) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
+  -webkit-transform: translateY(330px);
+          transform: translateY(330px); }
 
 .accordion-container #ac-1:checked ~ label i:before {
-  content: '';
   -webkit-transform: translateX(7.5px) translateY(-50%) rotate(-45deg);
           transform: translateX(7.5px) translateY(-50%) rotate(-45deg); }
 .accordion-container #ac-1:checked ~ label i:after {
-  content: "";
   -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(45deg);
           transform: translateX(-7.5px) translateY(-50%) rotate(45deg); }
 
 .accordion-container #ac-1:not(:checked) ~ label i:before {
-  content: '';
   -webkit-transform: translateX(7.5px) translateY(-50%) rotate(45deg);
           transform: translateX(7.5px) translateY(-50%) rotate(45deg); }
 .accordion-container #ac-1:not(:checked) ~ label i:after {
-  content: "";
   -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(-45deg);
           transform: translateX(-7.5px) translateY(-50%) rotate(-45deg); }
 
 .accordion-container label[for=ac-2] {
-  top: 170px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s, background-color 0.3s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s, background-color 0.3s; }
+  top: 70px;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, background-color 0.3s;
+          transition: opacity 0.25s, transform 0.5s, background-color 0.3s; }
 
 .accordion-container article.ac-small-2 {
-  top: 170px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s; }
+  top: 70px;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s;
+          transition: opacity 0.25s, transform 0.5s; }
 
 .accordion-container #ac-2:checked ~ article.ac-small-2 {
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s;
+          transition: opacity 0.25s, transform 0.5s;
   opacity: 1; }
 
 .accordion-container #ac-2:checked ~ article:not(ac-small-2) {
-  -webkit-transform: translateY(85px);
-          transform: translateY(85px); }
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px); }
 
 .accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ article:not(ac-small-2) {
+  -webkit-transform: translateY(180px);
+          transform: translateY(180px); }
+
+.accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) ~ article:not(ac-small-2) {
+  -webkit-transform: translateY(290px);
+          transform: translateY(290px); }
+
+.accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) ~ article:not(ac-small-2) {
+  -webkit-transform: translateY(400px);
+          transform: translateY(400px); }
+
+.accordion-container #ac-2:checked ~ input:not(#ac-2) + label {
+  -webkit-transform: translateY(110px);
+          transform: translateY(110px); }
+
+.accordion-container #ac-2:checked ~ input:checked:not(#ac-2) + label {
+  -webkit-transform: translateY(110px);
+          transform: translateY(110px); }
+
+.accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) + label {
   -webkit-transform: translateY(220px);
           transform: translateY(220px); }
 
-.accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) ~ article:not(ac-small-2) {
-  -webkit-transform: translateY(355px);
-          transform: translateY(355px); }
-
-.accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) ~ article:not(ac-small-2) {
-  -webkit-transform: translateY(490px);
-          transform: translateY(490px); }
-
-.accordion-container #ac-2:checked ~ input:not(#ac-2) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-2:checked ~ input:checked:not(#ac-2) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
-
 .accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
+  -webkit-transform: translateY(330px);
+          transform: translateY(330px); }
 
 .accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:not(#ac-2) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
+  -webkit-transform: translateY(220px);
+          transform: translateY(220px); }
 
 .accordion-container #ac-2:checked ~ input:checked:not(#ac-2) ~ input:checked:not(#ac-2) ~ input:not(#ac-2) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
+  -webkit-transform: translateY(330px);
+          transform: translateY(330px); }
 
 .accordion-container #ac-2:checked ~ label i:before {
-  content: '';
   -webkit-transform: translateX(7.5px) translateY(-50%) rotate(-45deg);
           transform: translateX(7.5px) translateY(-50%) rotate(-45deg); }
 .accordion-container #ac-2:checked ~ label i:after {
-  content: "";
   -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(45deg);
           transform: translateX(-7.5px) translateY(-50%) rotate(45deg); }
 
 .accordion-container #ac-2:not(:checked) ~ label i:before {
-  content: '';
   -webkit-transform: translateX(7.5px) translateY(-50%) rotate(45deg);
           transform: translateX(7.5px) translateY(-50%) rotate(45deg); }
 .accordion-container #ac-2:not(:checked) ~ label i:after {
-  content: "";
   -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(-45deg);
           transform: translateX(-7.5px) translateY(-50%) rotate(-45deg); }
 
 .accordion-container label[for=ac-3] {
-  top: 255px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s, background-color 0.3s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s, background-color 0.3s; }
+  top: 140px;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, background-color 0.3s;
+          transition: opacity 0.25s, transform 0.5s, background-color 0.3s; }
 
 .accordion-container article.ac-small-3 {
-  top: 255px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s; }
+  top: 140px;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s;
+          transition: opacity 0.25s, transform 0.5s; }
 
 .accordion-container #ac-3:checked ~ article.ac-small-3 {
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s;
+          transition: opacity 0.25s, transform 0.5s;
   opacity: 1; }
 
 .accordion-container #ac-3:checked ~ article:not(ac-small-3) {
-  -webkit-transform: translateY(85px);
-          transform: translateY(85px); }
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px); }
 
 .accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ article:not(ac-small-3) {
+  -webkit-transform: translateY(180px);
+          transform: translateY(180px); }
+
+.accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) ~ article:not(ac-small-3) {
+  -webkit-transform: translateY(290px);
+          transform: translateY(290px); }
+
+.accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) ~ article:not(ac-small-3) {
+  -webkit-transform: translateY(400px);
+          transform: translateY(400px); }
+
+.accordion-container #ac-3:checked ~ input:not(#ac-3) + label {
+  -webkit-transform: translateY(110px);
+          transform: translateY(110px); }
+
+.accordion-container #ac-3:checked ~ input:checked:not(#ac-3) + label {
+  -webkit-transform: translateY(110px);
+          transform: translateY(110px); }
+
+.accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) + label {
   -webkit-transform: translateY(220px);
           transform: translateY(220px); }
 
-.accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) ~ article:not(ac-small-3) {
-  -webkit-transform: translateY(355px);
-          transform: translateY(355px); }
-
-.accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) ~ article:not(ac-small-3) {
-  -webkit-transform: translateY(490px);
-          transform: translateY(490px); }
-
-.accordion-container #ac-3:checked ~ input:not(#ac-3) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-3:checked ~ input:checked:not(#ac-3) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
-
 .accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
+  -webkit-transform: translateY(330px);
+          transform: translateY(330px); }
 
 .accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:not(#ac-3) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
+  -webkit-transform: translateY(220px);
+          transform: translateY(220px); }
 
 .accordion-container #ac-3:checked ~ input:checked:not(#ac-3) ~ input:checked:not(#ac-3) ~ input:not(#ac-3) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
+  -webkit-transform: translateY(330px);
+          transform: translateY(330px); }
 
 .accordion-container #ac-3:checked ~ label i:before {
-  content: '';
   -webkit-transform: translateX(7.5px) translateY(-50%) rotate(-45deg);
           transform: translateX(7.5px) translateY(-50%) rotate(-45deg); }
 .accordion-container #ac-3:checked ~ label i:after {
-  content: "";
   -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(45deg);
           transform: translateX(-7.5px) translateY(-50%) rotate(45deg); }
 
 .accordion-container #ac-3:not(:checked) ~ label i:before {
-  content: '';
   -webkit-transform: translateX(7.5px) translateY(-50%) rotate(45deg);
           transform: translateX(7.5px) translateY(-50%) rotate(45deg); }
 .accordion-container #ac-3:not(:checked) ~ label i:after {
-  content: "";
   -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(-45deg);
           transform: translateX(-7.5px) translateY(-50%) rotate(-45deg); }
 
 .accordion-container label[for=ac-4] {
-  top: 340px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s, background-color 0.3s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s, background-color 0.3s; }
+  top: 210px;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, background-color 0.3s;
+          transition: opacity 0.25s, transform 0.5s, background-color 0.3s; }
 
 .accordion-container article.ac-small-4 {
-  top: 340px;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s; }
+  top: 210px;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s;
+          transition: opacity 0.25s, transform 0.5s; }
 
 .accordion-container #ac-4:checked ~ article.ac-small-4 {
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s, box-shadow 0.1s;
-          transition: opacity 0.25s, transform 0.5s, box-shadow 0.1s;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.5s;
+          transition: opacity 0.25s, transform 0.5s;
   opacity: 1; }
 
 .accordion-container #ac-4:checked ~ article:not(ac-small-4) {
-  -webkit-transform: translateY(85px);
-          transform: translateY(85px); }
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px); }
 
 .accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ article:not(ac-small-4) {
+  -webkit-transform: translateY(180px);
+          transform: translateY(180px); }
+
+.accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) ~ article:not(ac-small-4) {
+  -webkit-transform: translateY(290px);
+          transform: translateY(290px); }
+
+.accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) ~ article:not(ac-small-4) {
+  -webkit-transform: translateY(400px);
+          transform: translateY(400px); }
+
+.accordion-container #ac-4:checked ~ input:not(#ac-4) + label {
+  -webkit-transform: translateY(110px);
+          transform: translateY(110px); }
+
+.accordion-container #ac-4:checked ~ input:checked:not(#ac-4) + label {
+  -webkit-transform: translateY(110px);
+          transform: translateY(110px); }
+
+.accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) + label {
   -webkit-transform: translateY(220px);
           transform: translateY(220px); }
 
-.accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) ~ article:not(ac-small-4) {
-  -webkit-transform: translateY(355px);
-          transform: translateY(355px); }
-
-.accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) ~ article:not(ac-small-4) {
-  -webkit-transform: translateY(490px);
-          transform: translateY(490px); }
-
-.accordion-container #ac-4:checked ~ input:not(#ac-4) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-4:checked ~ input:checked:not(#ac-4) + label {
-  -webkit-transform: translateY(135px);
-          transform: translateY(135px); }
-
-.accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
-
 .accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
+  -webkit-transform: translateY(330px);
+          transform: translateY(330px); }
 
 .accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:not(#ac-4) + label {
-  -webkit-transform: translateY(270px);
-          transform: translateY(270px); }
+  -webkit-transform: translateY(220px);
+          transform: translateY(220px); }
 
 .accordion-container #ac-4:checked ~ input:checked:not(#ac-4) ~ input:checked:not(#ac-4) ~ input:not(#ac-4) + label {
-  -webkit-transform: translateY(405px);
-          transform: translateY(405px); }
+  -webkit-transform: translateY(330px);
+          transform: translateY(330px); }
 
 .accordion-container #ac-4:checked ~ label i:before {
-  content: '';
   -webkit-transform: translateX(7.5px) translateY(-50%) rotate(-45deg);
           transform: translateX(7.5px) translateY(-50%) rotate(-45deg); }
 .accordion-container #ac-4:checked ~ label i:after {
-  content: "";
   -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(45deg);
           transform: translateX(-7.5px) translateY(-50%) rotate(45deg); }
 
 .accordion-container #ac-4:not(:checked) ~ label i:before {
-  content: '';
   -webkit-transform: translateX(7.5px) translateY(-50%) rotate(45deg);
           transform: translateX(7.5px) translateY(-50%) rotate(45deg); }
 .accordion-container #ac-4:not(:checked) ~ label i:after {
-  content: "";
   -webkit-transform: translateX(-7.5px) translateY(-50%) rotate(-45deg);
           transform: translateX(-7.5px) translateY(-50%) rotate(-45deg); }
 
