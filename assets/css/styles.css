@@ -1030,70 +1030,49 @@ body {
       left: 0;
       top: 0;
       will-change: animation; }
+      .fader-wrapper .fader-container .fade-item:after {
+        background: white;
+        padding: 1.5%;
+        border-radius: 0.4375rem;
+        position: absolute;
+        color: black;
+        content: 'switching in 5s - hover to pause';
+        font-size: 32px;
+        left: 50%;
+        top: 50%;
+        -webkit-transition: -webkit-transform 1s;
+                transition: transform 1s;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%); }
+      .fader-wrapper .fader-container .fade-item:before {
+        padding: 2.5%;
+        content: 'This is a picture';
+        left: 0;
+        -webkit-transition: -webkit-transform 1s;
+                transition: transform 1s;
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+        bottom: 0;
+        position: absolute;
+        background: white;
+        z-index: 1;
+        font-size: 32px; }
 
 .fader-wrapper:hover .progress {
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
 
-.fader-wrapper:hover .fade-item:nth-of-type(1) {
+.fader-wrapper:hover .fade-item {
   -webkit-animation-play-state: paused;
           animation-play-state: paused; }
-  .fader-wrapper:hover .fade-item:nth-of-type(1):after {
-    background: white;
-    padding: 1.5%;
-    border-radius: 0.4375rem;
-    position: absolute;
-    color: black;
+  .fader-wrapper:hover .fade-item:before {
+    -webkit-transition: -webkit-transform 1s;
+            transition: transform 1s;
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  .fader-wrapper:hover .fade-item:after {
     content: 'paused';
-    font-size: 32px;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%); }
-
-.fade-item:nth-of-type(1):after {
-  background: white;
-  padding: 1.5%;
-  border-radius: 0.4375rem;
-  position: absolute;
-  color: black;
-  content: 'switching in 5s - hover to pause';
-  font-size: 32px;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%); }
-
-.fader-wrapper:hover .fade-item:nth-of-type(2) {
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused; }
-  .fader-wrapper:hover .fade-item:nth-of-type(2):after {
-    background: white;
-    padding: 1.5%;
-    border-radius: 0.4375rem;
-    position: absolute;
-    color: black;
-    content: 'paused';
-    font-size: 32px;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%); }
-
-.fade-item:nth-of-type(2):after {
-  background: white;
-  padding: 1.5%;
-  border-radius: 0.4375rem;
-  position: absolute;
-  color: black;
-  content: 'switching in 5s - hover to pause';
-  font-size: 32px;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%); }
+    background: red; }
 
 .fade-item:nth-of-type(1) {
   -webkit-animation: firstCycle 10s linear infinite;

@@ -26,6 +26,33 @@ $fade-duration: 10s;
             left: 0;
             top: 0;
             will-change: animation;
+
+            &:after {
+                background: white;
+                padding: 1.5%;
+                border-radius: (7 / 16) * 1rem;
+                position: absolute;
+                color: black;
+                content: 'switching in 5s - hover to pause';
+                font-size: 32px;
+                left: 50%;
+                top: 50%;
+                transition: transform 1s;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            &:before {
+                padding: 2.5%;
+                content: 'This is a picture';
+                left: 0;
+                transition: transform 1s;
+                transform: translateX(-100%);
+                bottom: 0;
+                position: absolute;
+                background: white;
+                z-index: 1;
+                font-size: 32px;
+            }
         }
     }
 }
@@ -34,38 +61,17 @@ $fade-duration: 10s;
     animation-play-state: paused;
 }
 
-@for $i from 1 through $fade-items {
-    .fader-wrapper:hover .fade-item:nth-of-type(#{$i}) {
-        animation-play-state: paused;
+.fader-wrapper:hover .fade-item {
+    animation-play-state: paused;
 
-        &:after {
-            background: white;
-            padding: 1.5%;
-            border-radius: (7 / 16) * 1rem;
-            position: absolute;
-            color: black;
-            content: 'paused';
-            font-size: 32px;
-            left: 50%;
-            top: 50%;
-            z-index: 1;
-            transform: translateX(-50%) translateY(-50%);
-        }
+    &:before {
+        transition: transform 1s;
+        transform: translateX(0);
     }
 
-    .fade-item:nth-of-type(#{$i}) {
-        &:after {
-            background: white;
-            padding: 1.5%;
-            border-radius: (7 / 16) * 1rem;
-            position: absolute;
-            color: black;
-            content: 'switching in 5s - hover to pause';
-            font-size: 32px;
-            left: 50%;
-            top: 50%;
-            transform: translateX(-50%) translateY(-50%);
-        }
+    &:after {
+        content: 'paused';
+        background: red;
     }
 }
 
@@ -131,7 +137,6 @@ $fade-duration: 10s;
     background: black;
     animation: progressing $fade-duration linear infinite;
 }
-
 
 @keyframes progressing {
     from {
