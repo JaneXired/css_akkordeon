@@ -1,17 +1,24 @@
+$sans: 'Titillium Web', sans-serif;
+
 html {
     height: auto;
+    font-family: $sans;
 }
 
 body {
-    background: #E5F1FF;
+    background: white;
     height: auto;
 }
 
 .wrapper {
-    background: #fff;
-    display: block;
+    background: lightgrey;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
     width: 100%;
     max-width: 1024px;
+}
+
+.divider {
+    border: 1px solid grey;
+    margin: 5% 0;
 }

@@ -1,6 +1,7 @@
-<div class="terminal_bigscreen-ground-wrapper">
-    <ul class="teaser">
-        <li class="1"></li>
-        <li class="2"></li>
+<div class="fader-wrapper">
+    <ul class="fader-container">
+        <li class="fade-item"></li>
+        <li class="fade-item"></li>
+        <div class="progress"></div>
     </ul>
 </div>
