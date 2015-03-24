@@ -27,7 +27,7 @@
             other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
     </article>
     <input id="ac-4" name="accordion-4" type="checkbox"/>
-    <label for="ac-4">and IE 11<i></i></label>
+    <label for="ac-4">and IE 9<i></i></label>
     <article class="ac-small-4">
         <p>You see? It's curious. Ted did figure it out - time travel. And when we get back, we gonna tell everyone. How
             it's possible, how it's done, what the dangers are. But then why fifty years in the future when the

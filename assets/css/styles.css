@@ -1236,4 +1236,116 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
     opacity: 0; } }
+
+.hoverbox-wrapper {
+  width: 100%;
+  height: 300px;
+  position: relative; }
+  .hoverbox-wrapper .hoverbox-container {
+    -webkit-perspective: 1000;
+            perspective: 1000;
+    width: 100%;
+    height: 100%; }
+    .hoverbox-wrapper .hoverbox-container .hoverbox-left, .hoverbox-wrapper .hoverbox-container .hoverbox-right {
+      -webkit-transition: -webkit-transform 1.5s;
+              transition: transform 1.5s;
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      will-change: transform;
+      z-index: 0;
+      position: relative;
+      -webkit-transform-origin: 50%;
+              transform-origin: 50%; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-left .front-side, .hoverbox-wrapper .hoverbox-container .hoverbox-left .back-side, .hoverbox-wrapper .hoverbox-container .hoverbox-right .front-side, .hoverbox-wrapper .hoverbox-container .hoverbox-right .back-side {
+        position: absolute;
+        top: 0;
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+        width: 100%;
+        height: 100%; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-left .back-side, .hoverbox-wrapper .hoverbox-container .hoverbox-right .back-side {
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+        background: lightgreen; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-left .front-side, .hoverbox-wrapper .hoverbox-container .hoverbox-right .front-side {
+        z-index: 2; }
+    .hoverbox-wrapper .hoverbox-container .hoverbox-left {
+      height: 100%;
+      width: 45%;
+      float: left; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-left .back-side:before, .hoverbox-wrapper .hoverbox-container .hoverbox-left .back-side:after {
+        left: 25%;
+        position: absolute;
+        -webkit-transition: -webkit-transform 3s, opacity 1s;
+                transition: transform 3s, opacity 1s;
+        opacity: 0; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-left .back-side:before {
+        bottom: 0;
+        line-height: 50px;
+        font-size: 2rem;
+        content: 'description title'; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-left .back-side:after {
+        line-height: 50px;
+        top: 0;
+        content: 'description text'; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-left .front-side {
+        background: url('http://lorempixel.com/1024/500/abstract/8'); }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-left:hover {
+        z-index: 3;
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg); }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-left:hover > .back-side:before, .hoverbox-wrapper .hoverbox-container .hoverbox-left:hover > .back-side:after {
+          -webkit-transition-delay: 3s;
+                  transition-delay: 3s;
+          -webkit-transition: -webkit-transform 3s, opacity 1s;
+                  transition: transform 3s, opacity 1s; }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-left:hover > .back-side:before {
+          opacity: 1;
+          -webkit-transform: translateY(-300%);
+                  transform: translateY(-300%); }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-left:hover > .back-side:after {
+          opacity: 1;
+          -webkit-transform: translateY(300%);
+                  transform: translateY(300%); }
+    .hoverbox-wrapper .hoverbox-container .hoverbox-right {
+      height: 100%;
+      width: 45%;
+      float: right; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-right .back-side {
+        overflow: hidden; }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-right .back-side:before, .hoverbox-wrapper .hoverbox-container .hoverbox-right .back-side:after {
+          position: absolute;
+          -webkit-transition: -webkit-transform 3s, opacity 1s;
+                  transition: transform 3s, opacity 1s;
+          opacity: 0; }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-right .back-side:before {
+          top: 35%;
+          left: -50%;
+          line-height: 50px;
+          font-size: 2rem;
+          content: 'description title'; }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-right .back-side:after {
+          bottom: 35%;
+          right: 0;
+          line-height: 50px;
+          content: 'description text'; }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-right .front-side {
+        background: url('http://lorempixel.com/1024/500/abstract/7'); }
+      .hoverbox-wrapper .hoverbox-container .hoverbox-right:hover {
+        z-index: 3;
+        -webkit-transform: rotateY(-180deg);
+                transform: rotateY(-180deg); }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-right:hover > .back-side:before, .hoverbox-wrapper .hoverbox-container .hoverbox-right:hover > .back-side:after {
+          -webkit-transition-delay: 3s;
+                  transition-delay: 3s;
+          -webkit-transition: -webkit-transform 3s, opacity 1s;
+                  transition: transform 3s, opacity 1s; }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-right:hover > .back-side:before {
+          -webkit-transform: translateX(150%);
+                  transform: translateX(150%);
+          opacity: 1; }
+        .hoverbox-wrapper .hoverbox-container .hoverbox-right:hover > .back-side:after {
+          -webkit-transform: translateX(-150%);
+                  transform: translateX(-150%);
+          opacity: 1; }
 /*# sourceMappingURL=styles.css.map */

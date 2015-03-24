@@ -1,5 +1,5 @@
 # CSS-only Project
-This page aims to show 60fps CSS-only implementations focusing on performance and new techniques rather than best practices / browser compability.
+This page aims to show 60fps CSS-only implementations focusing on performance and new techniques rather than best practices / browser compatibility.
 
 ## goal
 
