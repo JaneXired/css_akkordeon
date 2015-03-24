@@ -88,6 +88,20 @@ $slides: 3;
             }
         }
     }
+
+    @if $i == 1 {
+        .slide-#{$i} {
+            z-index: #{$i + $slides};
+        }
+    } @else if $i == $slides {
+        .slide-#{$i} {
+            z-index: #{$i + $slides};
+        }
+    } @else {
+        .slide-#{$i} {
+            z-index: #{$i};
+        }
+    }
     // navigation
     .nav label:nth-of-type(#{$i}):hover,
     #slide-id-#{$i}:checked ~ .nav label:nth-of-type(#{$i}) {
