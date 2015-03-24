@@ -2,6 +2,8 @@
 <main role="content">
     <?php snippet('svg-menu') ?>
     <div class="wrapper">
+        <div class="intro">This page aims to show 60fps CSS-only implementations focusing on performance and new techniques rather than best practices / browser compability.</div>
+        <?php snippet('divider') ?>
         <?php snippet('accordion') ?>
         <?php snippet('divider') ?>
         <?php snippet('accordion_2') ?>

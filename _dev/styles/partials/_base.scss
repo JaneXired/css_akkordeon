@@ -13,7 +13,7 @@ body {
 .wrapper {
     background: lightgrey;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
     width: 100%;
     max-width: 1024px;
 }
@@ -21,4 +21,11 @@ body {
 .divider {
     border: 1px solid grey;
     margin: 5% 0;
+}
+
+.intro {
+    background: white;
+    padding: 5%;
+    text-align: center;
+    font-size: (32 / 16) * 1rem;
 }
