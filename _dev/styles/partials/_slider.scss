@@ -36,14 +36,13 @@ $slides: 3;
     z-index: $slides + 2;
 
     label {
-        will-change: transform, background;
-        transition: transform 0.5s;
+        will-change: transform, background, color;
+        transition: transform 0.5s, background 0.5s, color 0.5s;
         overflow: hidden;
         margin-right: 0.5rem;
         width: 5%;
         background: white;
         float: left;
-        z-index: 1;
         padding: 0;
         position: relative;
         height: 130%;
@@ -88,7 +87,7 @@ $slides: 3;
             }
         }
     }
-
+    // add higher z-index to first and last-img to prevent overlapping
     @if $i == 1 {
         .slide-#{$i} {
             z-index: #{$slides + 1};
