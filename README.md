@@ -6,8 +6,8 @@ This page aims to show 60fps CSS-only implementations focusing on performance an
 Providing 60FPS examples using new techniques.
 
 ## used techniques
--lots of CSS transformations, animations and most importantly: no js
--based on a quick and dirty kirby CMS install
--Grunt
--Bower
--Vagrant
+- lots of CSS transformations, animations and most importantly: no js
+- based on a quick and dirty kirby CMS install
+- Grunt
+- Bower
+- Vagrant
