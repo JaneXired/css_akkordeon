@@ -14,7 +14,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-        function AjaxFeed(){
+        function callApi(){
             return $.ajax({
                 url:            'http://eu.battle.net/api/d3/profile/Ferdi-1763/hero/44057278',
                 data:           {something: true},
@@ -23,8 +23,8 @@
             });
         }
 
-        function GetData() {
-            AjaxFeed()
+        function getJson() {
+            callApi()
                 .done(function(data){
                     var name  =  'Name: ' + data.name;
                     var classn =  'Class: ' + data.class;
@@ -75,7 +75,6 @@
                     $('#passives').html(passiveSet);
                 });
         }
-        GetData();
-
+        getJson();
     </script>
 <?php snippet('footer') ?>
