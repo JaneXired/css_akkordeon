@@ -1,4 +1,5 @@
 <?php snippet('header') ?>
+<div class="d3">
     <div class="header-center">D3 API</div>
     <div class="header-left">General</div>
     <div class="header-right">Corrected Stats</div>
@@ -83,4 +84,5 @@
         }
         getJson();
     </script>
+</div>
 <?php snippet('footer') ?>

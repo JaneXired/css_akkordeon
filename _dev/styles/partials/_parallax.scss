@@ -1,0 +1,24 @@
+.parallax {
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+  height: 100%;
+}
+
+.parallax__group {
+  width: 100%;
+  height: auto;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: 40%;
+}
+
+.parallax__group:nth-of-type(1) {
+  background-image: url('/assets/images/bg.svg');
+}
+.parallax__group:nth-of-type(2) {
+  background-image: url('/assets/images/bg1.svg');
+}
+.parallax__group:nth-of-type(3) {
+  background-image: url('/assets/images/bg2.svg');
+}

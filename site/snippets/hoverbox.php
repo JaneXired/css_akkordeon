@@ -1,16 +1,18 @@
-<div class="hoverbox-wrapper">
-    <div class="hoverbox-container">
-        <div class="hoverbox-left">
-            <div class="front-side">
+<section class="hoverbox">
+    <div class="hoverbox-wrapper">
+        <div class="hoverbox-container">
+            <div class="hoverbox-left">
+                <div class="front-side">
+                </div>
+                <div class="back-side">
+                </div>
             </div>
-            <div class="back-side">
-            </div>
-        </div>
-        <div class="hoverbox-right">
-            <div class="front-side">
-            </div>
-            <div class="back-side">
+            <div class="hoverbox-right">
+                <div class="front-side">
+                </div>
+                <div class="back-side">
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
