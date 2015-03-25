@@ -79,7 +79,7 @@ module.exports = function (grunt) {
                     ]
                 },
                 options : {
-                    proxy: 'http://localhost:1238'
+                    proxy: 'http://localhost:1234'
                 }
             }
         },
