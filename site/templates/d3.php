@@ -1,6 +1,7 @@
 <?php snippet('header') ?>
+    <div class="header-center">D3 API</div>
     <div class="header-left">General</div>
-    <div class="header-right">Stats</div>
+    <div class="header-right">Corrected Stats</div>
     <div class="header-bottom-left">Skills & Runes</div>
     <div class="header-bottom-right">Passives</div>
     <div class="d3-wrapper">
@@ -26,13 +27,18 @@
         function getJson() {
             callApi()
                 .done(function(data){
-                    var name  =  'Name: ' + data.name;
-                    var classn =  'Class: ' + data.class;
-                    var level =  'Level: ' + data.level;
-                    var plevel =  'Paragon Level: ' + data.paragonLevel;
-                    var skillSet = [];
-                    var passiveSet = [];
-                    var statsSet = [];
+                    var passive = 'Ballistics',
+                        lifePercentBonus = 25,
+                        dmgPercentAmp = 45,
+                        dmgRed = -4,
+                        toughnessAmp = 12.5,
+                        name  =  'Name: ' + data.name,
+                        classn =  'Class: ' + data.class,
+                        level =  'Level: ' + data.level,
+                        plevel =  'Paragon Level: ' + data.paragonLevel,
+                        skillSet = [],
+                        passiveSet = [],
+                        statsSet = [];
                     for(i=0; i< data.skills.active.length; i++){
                         var skillName =  data.skills.active[i].skill.name;
                         if (data.skills.active[i].rune !== undefined) {
@@ -47,21 +53,21 @@
                         }
                     }
                     for(i=0; i< data.skills.passive.length; i++){
-                       var passiveName =  data.skills.passive[i].skill.name;
+                        var passiveName =  data.skills.passive[i].skill.name;
                         passiveSet[i] = '<li>';
                         passiveSet[i] += passiveName;
                         passiveSet[i] += '</li>';
                     }
                     if (data.items.neck.name === 'Hellfire Amulet') {
                         passiveSet[i] = '<li>';
-                        passiveSet[i] += 'Ballistics (HA)';
+                        passiveSet[i] += passive + ' (HA)';
                         passiveSet[i] += '</li>';
                     }
 
 
-                    statsSet[0] =  'HP: ' + data.stats.life;
-                    statsSet[1] =  'Damage: ' + data.stats.damage;
-                    statsSet[2] =  'Toughness: ' + data.stats.toughness;
+                    statsSet[0] =  'HP: ' + (data.stats.life + (data.stats.life * lifePercentBonus / 100));
+                    statsSet[1] =  'Damage: ' + (data.stats.damage + (data.stats.damage * dmgPercentAmp / 100)) + ' (' + (data.stats.damage + (data.stats.damage * dmgRed / 100)) + ') ';
+                    statsSet[2] =  'Toughness: ' + (data.stats.toughness + (data.stats.toughness * toughnessAmp / 100));
                     statsSet[3] =  'Dexterity: ' + data.stats.dexterity;
                     statsSet[4] =  'Vitality: ' + data.stats.vitality;
                     for(i=0; i< 5; i++){

@@ -25,6 +25,18 @@ ul {
   height: 615px;
 }
 
+.header-center {
+  border-radius: 7px;
+  padding: 0.5vh 2.5vw;
+  background: grey;
+  position: fixed;
+  top: 0;
+  font-size: (32 / 16) * 1rem;
+  left: 50%;
+  animation: fromTop 1s;
+  animation-fill-mode: forwards;
+}
+
 .header-left,
 .header-right,
 .header-bottom-left,
@@ -108,7 +120,7 @@ ul {
 @for $i from 1 through 10 {
   .d3-wrapper .base:nth-of-type(#{$i}) {
     top: 7.5vh * $i;
-    animation-delay: $i * 1s;
+    animation-delay: $i * 1s + 4s;
   }
 }
 
@@ -116,7 +128,7 @@ ul {
   #passives,
   #skills {
     li:nth-of-type(#{$i}) {
-      animation-delay: $i * 1s;
+      animation-delay: $i * 1s + 4s;
     }
   }
 }
@@ -160,7 +172,7 @@ ul {
   @for $i from 1 through 10 {
     li:nth-of-type(#{$i}) {
       animation-name: fadein-right;
-      animation-delay: $i * 1s;
+      animation-delay: $i * 1s + 4s;
       margin-bottom: 2.5vh;
       text-align: left;
       background: lightgrey;
@@ -207,5 +219,15 @@ ul {
 
   to {
     transform: translateX(-40vw) translateY(-40vh) rotate(20deg);
+  }
+}
+
+@keyframes fromTop {
+  from {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  to {
+    transform:  translateX(-50%) translateY(1.5vh);
   }
 }

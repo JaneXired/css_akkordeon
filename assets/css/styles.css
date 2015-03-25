@@ -1378,6 +1378,19 @@ ul {
   width: 405px;
   height: 615px; }
 
+.header-center {
+  border-radius: 7px;
+  padding: 0.5vh 2.5vw;
+  background: grey;
+  position: fixed;
+  top: 0;
+  font-size: 2rem;
+  left: 50%;
+  -webkit-animation: fromTop 1s;
+          animation: fromTop 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+
 .header-left, .header-right, .header-bottom-left, .header-bottom-right {
   position: fixed;
   background: grey;
@@ -1455,93 +1468,93 @@ ul {
 
 .d3-wrapper .base:nth-of-type(1) {
   top: 7.5vh;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s; }
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s; }
 
 .d3-wrapper .base:nth-of-type(2) {
   top: 15vh;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s; }
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s; }
 
 .d3-wrapper .base:nth-of-type(3) {
   top: 22.5vh;
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s; }
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s; }
 
 .d3-wrapper .base:nth-of-type(4) {
   top: 30vh;
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s; }
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s; }
 
 .d3-wrapper .base:nth-of-type(5) {
   top: 37.5vh;
-  -webkit-animation-delay: 5s;
-          animation-delay: 5s; }
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s; }
 
 .d3-wrapper .base:nth-of-type(6) {
   top: 45vh;
-  -webkit-animation-delay: 6s;
-          animation-delay: 6s; }
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s; }
 
 .d3-wrapper .base:nth-of-type(7) {
   top: 52.5vh;
-  -webkit-animation-delay: 7s;
-          animation-delay: 7s; }
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s; }
 
 .d3-wrapper .base:nth-of-type(8) {
   top: 60vh;
-  -webkit-animation-delay: 8s;
-          animation-delay: 8s; }
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s; }
 
 .d3-wrapper .base:nth-of-type(9) {
   top: 67.5vh;
-  -webkit-animation-delay: 9s;
-          animation-delay: 9s; }
+  -webkit-animation-delay: 13s;
+          animation-delay: 13s; }
 
 .d3-wrapper .base:nth-of-type(10) {
   top: 75vh;
-  -webkit-animation-delay: 10s;
-          animation-delay: 10s; }
+  -webkit-animation-delay: 14s;
+          animation-delay: 14s; }
 
 #passives li:nth-of-type(1), #skills li:nth-of-type(1) {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s; }
-
-#passives li:nth-of-type(2), #skills li:nth-of-type(2) {
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s; }
-
-#passives li:nth-of-type(3), #skills li:nth-of-type(3) {
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s; }
-
-#passives li:nth-of-type(4), #skills li:nth-of-type(4) {
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s; }
-
-#passives li:nth-of-type(5), #skills li:nth-of-type(5) {
   -webkit-animation-delay: 5s;
           animation-delay: 5s; }
 
-#passives li:nth-of-type(6), #skills li:nth-of-type(6) {
+#passives li:nth-of-type(2), #skills li:nth-of-type(2) {
   -webkit-animation-delay: 6s;
           animation-delay: 6s; }
 
-#passives li:nth-of-type(7), #skills li:nth-of-type(7) {
+#passives li:nth-of-type(3), #skills li:nth-of-type(3) {
   -webkit-animation-delay: 7s;
           animation-delay: 7s; }
 
-#passives li:nth-of-type(8), #skills li:nth-of-type(8) {
+#passives li:nth-of-type(4), #skills li:nth-of-type(4) {
   -webkit-animation-delay: 8s;
           animation-delay: 8s; }
 
-#passives li:nth-of-type(9), #skills li:nth-of-type(9) {
+#passives li:nth-of-type(5), #skills li:nth-of-type(5) {
   -webkit-animation-delay: 9s;
           animation-delay: 9s; }
 
-#passives li:nth-of-type(10), #skills li:nth-of-type(10) {
+#passives li:nth-of-type(6), #skills li:nth-of-type(6) {
   -webkit-animation-delay: 10s;
           animation-delay: 10s; }
+
+#passives li:nth-of-type(7), #skills li:nth-of-type(7) {
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s; }
+
+#passives li:nth-of-type(8), #skills li:nth-of-type(8) {
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s; }
+
+#passives li:nth-of-type(9), #skills li:nth-of-type(9) {
+  -webkit-animation-delay: 13s;
+          animation-delay: 13s; }
+
+#passives li:nth-of-type(10), #skills li:nth-of-type(10) {
+  -webkit-animation-delay: 14s;
+          animation-delay: 14s; }
 
 #skills, #passives {
   width: 37.5vw;
@@ -1576,46 +1589,6 @@ ul {
   #stats li:nth-of-type(1) {
     -webkit-animation-name: fadein-right;
             animation-name: fadein-right;
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
-    margin-bottom: 2.5vh;
-    text-align: left;
-    background: lightgrey;
-    padding: 1.5vh;
-    border-radius: 0.4375rem; }
-  #stats li:nth-of-type(2) {
-    -webkit-animation-name: fadein-right;
-            animation-name: fadein-right;
-    -webkit-animation-delay: 2s;
-            animation-delay: 2s;
-    margin-bottom: 2.5vh;
-    text-align: left;
-    background: lightgrey;
-    padding: 1.5vh;
-    border-radius: 0.4375rem; }
-  #stats li:nth-of-type(3) {
-    -webkit-animation-name: fadein-right;
-            animation-name: fadein-right;
-    -webkit-animation-delay: 3s;
-            animation-delay: 3s;
-    margin-bottom: 2.5vh;
-    text-align: left;
-    background: lightgrey;
-    padding: 1.5vh;
-    border-radius: 0.4375rem; }
-  #stats li:nth-of-type(4) {
-    -webkit-animation-name: fadein-right;
-            animation-name: fadein-right;
-    -webkit-animation-delay: 4s;
-            animation-delay: 4s;
-    margin-bottom: 2.5vh;
-    text-align: left;
-    background: lightgrey;
-    padding: 1.5vh;
-    border-radius: 0.4375rem; }
-  #stats li:nth-of-type(5) {
-    -webkit-animation-name: fadein-right;
-            animation-name: fadein-right;
     -webkit-animation-delay: 5s;
             animation-delay: 5s;
     margin-bottom: 2.5vh;
@@ -1623,7 +1596,7 @@ ul {
     background: lightgrey;
     padding: 1.5vh;
     border-radius: 0.4375rem; }
-  #stats li:nth-of-type(6) {
+  #stats li:nth-of-type(2) {
     -webkit-animation-name: fadein-right;
             animation-name: fadein-right;
     -webkit-animation-delay: 6s;
@@ -1633,7 +1606,7 @@ ul {
     background: lightgrey;
     padding: 1.5vh;
     border-radius: 0.4375rem; }
-  #stats li:nth-of-type(7) {
+  #stats li:nth-of-type(3) {
     -webkit-animation-name: fadein-right;
             animation-name: fadein-right;
     -webkit-animation-delay: 7s;
@@ -1643,7 +1616,7 @@ ul {
     background: lightgrey;
     padding: 1.5vh;
     border-radius: 0.4375rem; }
-  #stats li:nth-of-type(8) {
+  #stats li:nth-of-type(4) {
     -webkit-animation-name: fadein-right;
             animation-name: fadein-right;
     -webkit-animation-delay: 8s;
@@ -1653,7 +1626,7 @@ ul {
     background: lightgrey;
     padding: 1.5vh;
     border-radius: 0.4375rem; }
-  #stats li:nth-of-type(9) {
+  #stats li:nth-of-type(5) {
     -webkit-animation-name: fadein-right;
             animation-name: fadein-right;
     -webkit-animation-delay: 9s;
@@ -1663,11 +1636,51 @@ ul {
     background: lightgrey;
     padding: 1.5vh;
     border-radius: 0.4375rem; }
-  #stats li:nth-of-type(10) {
+  #stats li:nth-of-type(6) {
     -webkit-animation-name: fadein-right;
             animation-name: fadein-right;
     -webkit-animation-delay: 10s;
             animation-delay: 10s;
+    margin-bottom: 2.5vh;
+    text-align: left;
+    background: lightgrey;
+    padding: 1.5vh;
+    border-radius: 0.4375rem; }
+  #stats li:nth-of-type(7) {
+    -webkit-animation-name: fadein-right;
+            animation-name: fadein-right;
+    -webkit-animation-delay: 11s;
+            animation-delay: 11s;
+    margin-bottom: 2.5vh;
+    text-align: left;
+    background: lightgrey;
+    padding: 1.5vh;
+    border-radius: 0.4375rem; }
+  #stats li:nth-of-type(8) {
+    -webkit-animation-name: fadein-right;
+            animation-name: fadein-right;
+    -webkit-animation-delay: 12s;
+            animation-delay: 12s;
+    margin-bottom: 2.5vh;
+    text-align: left;
+    background: lightgrey;
+    padding: 1.5vh;
+    border-radius: 0.4375rem; }
+  #stats li:nth-of-type(9) {
+    -webkit-animation-name: fadein-right;
+            animation-name: fadein-right;
+    -webkit-animation-delay: 13s;
+            animation-delay: 13s;
+    margin-bottom: 2.5vh;
+    text-align: left;
+    background: lightgrey;
+    padding: 1.5vh;
+    border-radius: 0.4375rem; }
+  #stats li:nth-of-type(10) {
+    -webkit-animation-name: fadein-right;
+            animation-name: fadein-right;
+    -webkit-animation-delay: 14s;
+            animation-delay: 14s;
     margin-bottom: 2.5vh;
     text-align: left;
     background: lightgrey;
@@ -1745,4 +1758,22 @@ ul {
   to {
     -webkit-transform: translateX(-40vw) translateY(-40vh) rotate(20deg);
             transform: translateX(-40vw) translateY(-40vh) rotate(20deg); } }
+
+@-webkit-keyframes fromTop {
+  from {
+    -webkit-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0); }
+
+  to {
+    -webkit-transform: translateX(-50%) translateY(1.5vh);
+            transform: translateX(-50%) translateY(1.5vh); } }
+
+@keyframes fromTop {
+  from {
+    -webkit-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0); }
+
+  to {
+    -webkit-transform: translateX(-50%) translateY(1.5vh);
+            transform: translateX(-50%) translateY(1.5vh); } }
 /*# sourceMappingURL=styles.css.map */
