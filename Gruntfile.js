@@ -70,11 +70,11 @@ module.exports = function (grunt) {
             dev: {
                 bsFiles: {
                     src: [
-                        'assets/js/scripts.min.js',
-                        'assets/js/vendor.min.js',
                         'assets/css/styles.min.css',
                         'assets/images/*.png',
-                        'assets/images/*.svg'
+                        'assets/images/*.svg',
+                        'site/templates/*.php',
+                        'site/snippets/*.php'
                     ]
                 },
                 options : {
