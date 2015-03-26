@@ -45,7 +45,6 @@ module.exports = function (grunt) {
             all: {
                 files: {
                     'assets/css/styles.min.css': [
-                        '_vendor/normalize-css/normalize.css',
                         'assets/css/styles.css'
                     ]
                 }
