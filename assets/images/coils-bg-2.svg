@@ -7,6 +7,6 @@
 			<feMorphology in='result6' operator='dilate' radius='4' result='result3' id='feMorphology3123' />
 		</filter>
 	</defs>
-	<rect width='100%' height='100%' x='0' y='0' id='rect2985' fill='#000000'/>     
+	<rect width='100%' height='100%' x='0' y='0' id='rect2985' fill='#000000'/>
 	<rect width='100%' height='100%' x='0' y='0' id='rect2985' style='fill:#757575;filter:url(#filter3115)' />
 </svg>

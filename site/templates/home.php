@@ -46,7 +46,8 @@
                         <path d="M -20 20 l 21 -10 0 20 z" transform="translate(335,0) scale(-1,1)"/>
                     </g>
                     <text y="65%">
-                        <tspan x="15%">CSS you must.</tspan>
+                        <tspan x="5%">Use css, you must.</tspan>
+                        <tspan x="5%">Yes, hmmm.</tspan>
                     </text>
                 </g>
             </svg>

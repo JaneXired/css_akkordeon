@@ -26,7 +26,7 @@ section {
 .intro {
   margin: 0 auto;
   width: 50%;
-  padding: 5%;
+  padding: 2.5%;
   text-align: center;
   font-size: 2rem; }
 
@@ -42,7 +42,7 @@ section {
   width: 100%;
   background-attachment: fixed;
   background-position: center center;
-  background-size: 32.5vw; }
+  background-size: 13.5vw; }
 
 .parallax__group:nth-of-type(1) {
   background-image: url('/assets/images/coils-bg-1.svg'); }
@@ -158,18 +158,18 @@ dl {
   will-change: transform; }
 
 .menu-item, .menu-open-button, .menu-item-down, .menu-open-button-down {
-  background: #e91e63;
+  background: white;
   border-radius: 100%;
   width: 80px;
   height: 80px;
   margin: 0 1.5%;
   position: absolute;
   top: 20px;
-  color: white;
+  color: black;
   text-align: center;
   line-height: 80px; }
   .menu-item svg, .menu-open-button svg, .menu-item-down svg, .menu-open-button-down svg {
-    fill: white;
+    fill: black;
     height: 32px;
     width: 32px;
     position: absolute;
@@ -181,7 +181,7 @@ dl {
 .line {
   width: 20px;
   height: 3px;
-  background: white;
+  background: black;
   display: block;
   position: absolute;
   top: 50%;
@@ -230,8 +230,8 @@ dl {
   text-align: left; }
 
 .menu-item:hover {
-  background: black;
-  color: #e91e63; }
+  background: white;
+  color: black; }
 .menu-item:nth-child(3) {
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms; }
@@ -262,12 +262,17 @@ dl {
           transition-duration: 1s;
   -webkit-transform: scale(1, 1) translate3d(0, 0, 0);
           transform: scale(1, 1) translate3d(0, 0, 0);
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
 
 .menu-open-button:hover {
   -webkit-animation: pulse 1s ease-in-out infinite;
           animation: pulse 1s ease-in-out infinite;
-  background: black; }
+  background: black;
+  color: white; }
 
 .menu-open:checked + .menu-open-button {
   -webkit-transition-timing-function: linear;
@@ -330,8 +335,8 @@ dl {
 
 
 .menu-item-down:hover {
-  background: black;
-  color: #e91e63; }
+  background: white;
+  color: black; }
 .menu-item-down:nth-child(3) {
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms; }
@@ -373,14 +378,15 @@ dl {
           transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
-  -webkit-transform: scale(1, 1) translate3d(0, 0, 0);
-          transform: scale(1, 1) translate3d(0, 0, 0);
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
   cursor: pointer; }
 
 .menu-open-button-down:hover {
   -webkit-animation: pulse 1s ease-in-out infinite;
           animation: pulse 1s ease-in-out infinite;
-  background: black; }
+  background: black;
+  color: white; }
 
 .menu-open-down:checked + .menu-open-button-down {
   -webkit-transition-timing-function: linear;
@@ -1828,6 +1834,76 @@ ul {
   top: 11.5vh;
   right: 33.5vw;
   font-size: 36px; }
+  .parallax > div:last-child > svg:first-child tspan:first-child {
+    -webkit-animation: blend-out 10s infinite;
+            animation: blend-out 10s infinite; }
+  .parallax > div:last-child > svg:first-child tspan:last-child {
+    -webkit-animation: blend-in 10s infinite;
+            animation: blend-in 10s infinite; }
+
+@-webkit-keyframes blend-out {
+  0% {
+    opacity: 1; }
+
+  25% {
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  75% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@keyframes blend-out {
+  0% {
+    opacity: 1; }
+
+  25% {
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  75% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes blend-in {
+  0% {
+    opacity: 0; }
+
+  25% {
+    opacity: 0; }
+
+  50% {
+    opacity: 1; }
+
+  75% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
+
+@keyframes blend-in {
+  0% {
+    opacity: 0; }
+
+  25% {
+    opacity: 0; }
+
+  50% {
+    opacity: 1; }
+
+  75% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0; } }
 
 .parallax > div:last-child > svg:last-child {
   display: block;

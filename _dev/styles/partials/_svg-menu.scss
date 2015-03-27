@@ -30,19 +30,19 @@ $spacing: 8px;
 }
 
 %ball{
-  background: $fg;
+  background: white;
   border-radius: 100%;
   width: 80px;
   height: 80px;
   margin: 0 1.5%;
   position: absolute;
   top: 20px;
-  color: white;
+  color: black;
   text-align: center;
   line-height: 80px;
 
   svg {
-    fill: white;
+    fill: black;
     height: 32px;
     width: 32px;
     position: absolute;
@@ -55,7 +55,7 @@ $spacing: 8px;
 .line{
   width: 20px;
   height: 3px;
-  background: white;
+  background: black;
   display: block;
   position: absolute;
   top: 50%;
@@ -116,8 +116,8 @@ $spacing: 8px;
 
 .menu-item{
   &:hover{
-    background: black;
-    color: $fg;
+    background: white;
+    color: black;
   }
   @for $i from 1 through $menu-items{
     &:nth-child(#{$i+2}){
@@ -135,11 +135,14 @@ $spacing: 8px;
   transition-duration: 1s;
   transform: scale(1,1) translate3d(0,0,0);
   cursor: pointer;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .menu-open-button:hover{
   animation: pulse 1s ease-in-out infinite;
   background: black;
+  color: white;
 }
 .menu-open:checked+.menu-open-button{
   transition-timing-function: linear;
@@ -185,8 +188,8 @@ $spacing: 8px;
 
 .menu-item-down{
   &:hover{
-    background: black;
-    color: $fg;
+    background: white;
+    color: black;
   }
   @for $i from 1 through $menu-items{
     &:nth-child(#{$i+2}){
@@ -218,13 +221,14 @@ $spacing: 8px;
   z-index: 2;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   transition-duration: 1s;
-  transform: scale(1,1) translate3d(0,0,0);
+  transform: scale(1.1,1.1);
   cursor: pointer;
 }
 
 .menu-open-button-down:hover{
   animation: pulse 1s ease-in-out infinite;
   background: black;
+  color: white;
 }
 .menu-open-down:checked+.menu-open-button-down{
   transition-timing-function: linear;
