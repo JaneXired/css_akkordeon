@@ -1,4 +1,4 @@
-.intro > div > svg {
+.parallax > div:last-child > svg {
   animation: flyAway 7.5s;
   animation-timing-function: ease-in;
   animation-fill-mode: both;
@@ -7,7 +7,7 @@
   will-change: animation;
 }
 
-.intro > div > svg:first-child {
+.parallax > div:last-child > svg:first-child {
   display: block;
   width: 8vw;
   margin: 0 auto;
@@ -15,21 +15,16 @@
   z-index: 1;
   top: 11.5vh;
   right: 33.5vw;
+  font-size: 36px;
 }
 
-.intro > div > svg:last-child {
+.parallax > div:last-child > svg:last-child {
   display: block;
   width: 10vw;
   margin: 0 auto;
+  z-index: 1;
   position: fixed;
   top: 5vh;
-  right: 25vw;
-}
-
-.intro > div > span{
-  display: block;
-  position: fixed;
-  top: 5%;
   right: 25vw;
 }
 
