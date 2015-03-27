@@ -11,11 +11,11 @@
   width: 100%;
   background-attachment: fixed;
   background-position: center center;
-  background-size: 25vw;
+  background-size: 32.5vw;
 }
 $groups: 3;
 @for $i from 1 to $groups+1 {
-    .parallax__group:nth-of-type(#{$i}) {
-        background-image: url('/assets/images/bg-#{$i}.svg');
-    }
+  .parallax__group:nth-of-type(#{$i}) {
+    background-image: url('/assets/images/coils-bg-#{$i}.svg');
+  }
 }

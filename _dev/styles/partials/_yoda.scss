@@ -1,0 +1,296 @@
+.intro > div > svg {
+  animation: flyAway 7.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-delay: 2.5s;
+  user-select: none;
+  will-change: animation;
+}
+
+.intro > div > svg:first-child {
+  display: block;
+  width: 8vw;
+  margin: 0 auto;
+  position: fixed;
+  z-index: 1;
+  top: 11.5vh;
+  right: 33.5vw;
+}
+
+.intro > div > svg:last-child {
+  display: block;
+  width: 10vw;
+  margin: 0 auto;
+  position: fixed;
+  top: 5vh;
+  right: 25vw;
+}
+
+.intro > div > span{
+  display: block;
+  position: fixed;
+  top: 5%;
+  right: 25vw;
+}
+
+@keyframes flyAway {
+  from {
+      transform: translateX(0) translateY(0);
+  }
+  to {
+      transform: translateX(25vw) translateY(15vh);
+  }
+}
+
+.closed-eyes {
+  transition: all .1s ease;
+}
+
+#pulse {
+  stroke: rgba(255,255,255,0.25);
+  animation: pulse 5s linear infinite;
+  transform-origin: -50%;
+  stroke-width: 6;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: .8;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: .2;
+  }
+}
+
+#shadow {
+  animation: shadow 3s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+#body {
+  animation: bounce 3s ease-in-out infinite;
+}
+#robe-shadows {
+  animation: bounce 3s ease-in-out infinite;
+}
+.foot {
+  transform-origin: 50% 1%;
+}
+.sway {
+  animation: sway 3s linear infinite;
+  transform-origin: 50% 1%;
+}
+
+.antisway {
+  animation: antisway 5s linear infinite;
+  transform-origin: 50% 1%;
+}
+#head {
+  animation: nod 5s linear infinite;
+  transform-origin: 75% 75%;
+}
+.wiggle {
+  animation: wiggle 5s linear infinite;
+  transform-origin: 0% 100%;
+}
+.antiwiggle {
+  animation: wiggle 5s linear infinite reverse;
+  transform-origin: 100% 100%;
+}
+
+
+@keyframes shadow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(2%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-.2deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(.2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes antisway {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(.3deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-.3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes nod {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes wiggle-left {
+  0% {
+    transform: rotate(-4deg);
+  }
+  15% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-4deg);
+  }
+  45% {
+    transform: rotate(-4deg);
+  }
+  65% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-4deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+
+#open-eyes {
+  opacity: 1;
+}
+
+.closed-eyes {
+  stroke-width: 0;
+}
+.open-eye {
+  transform-origin: 50% 0;
+}
+#left-eye-lid{
+  animation: lefteye 5s ease infinite;
+}
+#right-eye-lid {
+  animation: righteye 5s ease infinite;
+}
+#head {
+  animation: nod 10s ease;
+  transform-origin: 75% 75%;
+}
+
+@keyframes lefteye {
+  0% {
+    transform: translateY(0)
+  }
+  10% {
+    transform: translateY(-15%);
+  }
+  30% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  52% {
+    transform: translateY(-100%);
+  }
+  62% {
+    transform: translateY(-50%);
+  }
+  70% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes righteye {
+  0% {
+    transform: translateY(0)
+  }
+  10% {
+    transform: translateY(-15%);
+  }
+  30% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  52% {
+    transform: translateY(-100%);
+  }
+  62% {
+    transform: translateY(-50%);
+  }
+  72% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes nod {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
