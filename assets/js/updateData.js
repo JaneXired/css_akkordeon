@@ -10,7 +10,7 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
             paragon: {},
             polling: true,
             isHidden: false,
-            url: {}
+            url: localStorage.getItem('url')
         };
     },
     loadCommentsFromServer: function () {
@@ -50,6 +50,7 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
         this.setState({url: newUrl});
         console.log(newUrl);
         this.setState({polling: true});
+        localStorage.setItem('url', newUrl);
     },
 
     render: function () {
@@ -81,10 +82,10 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
             };
         }
 
-        base.push(React.DOM.li({key: statsState.key}, "Name: ", nameState));
-        base.push(React.DOM.li({key: statsState.key}, "Class: ", classState));
-        base.push(React.DOM.li({key: statsState.key}, "Level: ", levelState));
-        base.push(React.DOM.li({key: statsState.key}, "Paragon: ", paragonState));
+        base.push(React.DOM.li({key: nameState.key}, "Name: ", nameState));
+        base.push(React.DOM.li({key: classState.key}, "Class: ", classState));
+        base.push(React.DOM.li({key: levelState.key + paragonState.key}, "Level: ", levelState));
+        base.push(React.DOM.li({key: paragonState.key}, "Paragon: ", paragonState));
 
         skillsState.forEach(function (skillName) {
             if (skillName.rune) {
@@ -121,7 +122,7 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
 
         return (
             React.DOM.div({className: 'd3-container'},
-                React.DOM.div({className: 'd3-char-bg', key: classState.key + 'image', style: style}),
+                React.DOM.div({className: 'd3-char-bg', key: classState.key + '-image', style: style}),
                 React.DOM.div({className: 'd3-api-url' , onClick: this.clickHandler}, this.state.url),
                 React.DOM.div({className: 'd3-data'},
                     React.DOM.ul({className: 'base'}, base),
@@ -141,3 +142,9 @@ React.render(React.createElement(DataWrapper, {
 
 // http://eu.battle.net/api/d3/profile/Ferdi-1763/hero/44057278
 // http://eu.battle.net/api/d3/profile/McleodNUS-2608/hero/56016042
+
+
+// todos
+// save url to localStorage - done
+// find out how animations triggers work
+// correct stats
