@@ -1,9 +1,6 @@
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-
-var DataWrapper = React.createClass({
-    displayName: "DataWrapper",
+var DataWrapper = React.createClass({displayName: "DataWrapper",
     getInitialState: function () {
-        return {skills: [], passives: [], stats: [], class: {}, name: {}, level: {}, paragon: {}, polling: true};
+        return {skills: [], passives: [], stats: [], class: {}, name: {}, level: {}, paragon: {}, polling: true, isHidden: false};
     },
     loadCommentsFromServer: function () {
         if (this.state.polling === true) {
@@ -35,6 +32,7 @@ var DataWrapper = React.createClass({
     clickHandler: function () {
         this.setState({polling: false});
         var newName = this.state.name.replace(this.state.name,[prompt('Enter a new Name')]);
+        this.setState({isHidden: true});
         this.setState({name: newName});
     },
 
@@ -58,10 +56,11 @@ var DataWrapper = React.createClass({
             };
         }
 
-        React.createElement(ReactCSSTransitionGroup, {transitionName: "example"},
+        if (this.state.isHidden === true) {
+            base.push(React.DOM.li({key: nameState, className: 'isHidden'}, "Name: ", nameState))
+        } else {
             base.push(React.DOM.li({key: nameState}, "Name: ", nameState))
-        );
-
+        }
 
         base.push(React.DOM.li({key: classState}, "Class: ", classState));
         base.push(React.DOM.li({key: levelState}, "Level: ", levelState));
