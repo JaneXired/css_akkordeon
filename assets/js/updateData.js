@@ -136,13 +136,18 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
 });
 
 React.render(React.createElement(DataWrapper, {
-        pollInterval: 2000
+        pollInterval: 15000
     }),
     document.getElementById('profile-data'));
 
 // http://eu.battle.net/api/d3/profile/Ferdi-1763/hero/44057278
 // http://eu.battle.net/api/d3/profile/McleodNUS-2608/hero/56016042
 
+// https://eu.api.battle.net/d3/profile/Ferdi-1763/hero/44057278?locale=en_GB&apikey=jrgy6zyyncxauzt2ub5m4f7zqg25fptm
+// https://eu.api.battle.net/d3/profile/McleodNUS-2608/hero/56016042?locale=en_GB&apikey=jrgy6zyyncxauzt2ub5m4f7zqg25fptm
+
+// https://eu.api.battle.net/d3/profile/Ferdi-1763/hero/44057278?locale=en_GB&callback=data&apikey=jrgy6zyyncxauzt2ub5m4f7zqg25fptm
+// https://eu.api.battle.net/d3/profile/McleodNUS-2608/hero/56016042?locale=en_GB&callback=data&apikey=jrgy6zyyncxauzt2ub5m4f7zqg25fptm
 
 // todos
 // save url to localStorage - done
