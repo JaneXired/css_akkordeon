@@ -1,11 +1,22 @@
 var DataWrapper = React.createClass({displayName: "DataWrapper",
     getInitialState: function () {
-        return {skills: [], passives: [], stats: [], class: {}, name: {}, level: {}, paragon: {}, polling: true, isHidden: false};
+        return {
+            skills: [],
+            passives: [],
+            stats: [],
+            class: {},
+            name: {},
+            level: {},
+            paragon: {},
+            polling: true,
+            isHidden: false,
+            url: {}
+        };
     },
     loadCommentsFromServer: function () {
         if (this.state.polling === true) {
             $.ajax({
-                url: this.props.url,
+                url: this.state.url,
                 dataType: 'jsonp',
                 success: function (data) {
                     this.setState({name: data.name});
@@ -17,7 +28,8 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
                     this.setState({stats: data.stats});
                 }.bind(this),
                 error: function (xhr, status, err) {
-                    console.error(this.props.url, status, err.toString());
+                    this.setState({url: 'invalid api url'});
+                    console.error(this.state.url, status, err.toString());
                 }.bind(this)
             });
             console.log('updated');
@@ -29,11 +41,15 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
         setInterval(this.loadCommentsFromServer, this.props.pollInterval);
     },
 
+    componentDidMount: function() {
+    },
+
     clickHandler: function () {
         this.setState({polling: false});
-        var newName = this.state.name.replace(this.state.name,[prompt('Enter a new Name')]);
-        this.setState({isHidden: true});
-        this.setState({name: newName});
+        var newUrl = this.state.url.replace(this.state.url,[prompt('Enter a new url')]);
+        this.setState({url: newUrl});
+        console.log(newUrl);
+        this.setState({polling: true});
     },
 
     render: function () {
@@ -48,47 +64,67 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
             classState = this.state.class,
             levelState = this.state.level,
             paragonState = this.state.paragon,
-            base = [];
+            base = [],
+            style = [];
 
         if (classState === 'demon-hunter') {
-            var style = {
+            style = {
                 backgroundImage: "url('/assets/images/dh.jpg')"
+            };
+        } else if (classState === 'witch-doctor') {
+            style = {
+                backgroundImage: "url('/assets/images/wd.png')"
+            };
+        } else {
+            style = {
+                backgroundImage: "url('/assets/images/empty.svg')"
             };
         }
 
-        if (this.state.isHidden === true) {
-            base.push(React.DOM.li({key: nameState, className: 'isHidden'}, "Name: ", nameState))
-        } else {
-            base.push(React.DOM.li({key: nameState}, "Name: ", nameState))
-        }
-
-        base.push(React.DOM.li({key: classState}, "Class: ", classState));
-        base.push(React.DOM.li({key: levelState}, "Level: ", levelState));
-        base.push(React.DOM.li({key: paragonState}, "Paragon: ", paragonState));
+        base.push(React.DOM.li({key: statsState.key}, "Name: ", nameState));
+        base.push(React.DOM.li({key: statsState.key}, "Class: ", classState));
+        base.push(React.DOM.li({key: statsState.key}, "Level: ", levelState));
+        base.push(React.DOM.li({key: statsState.key}, "Paragon: ", paragonState));
 
         skillsState.forEach(function (skillName) {
             if (skillName.rune) {
-                skills.push(React.DOM.li({key: skillName.skill.name}, skillName.skill.name, " with ", skillName.rune.name));
+                skills.push(React.DOM.li({key: skillsState.key}, skillName.skill.name, " with ", skillName.rune.name));
             } else {
-                skills.push(React.DOM.li({key: skillName.skill.name}, skillName.skill.name));
+                skills.push(React.DOM.li({key: skillsState.key}, skillName.skill.name));
             }
         });
 
         passivesState.forEach(function (passiveName) {
-            passives.push(React.DOM.li({key: passiveName.skill.name}, passiveName.skill.name));
+            passives.push(React.DOM.li({key: passivesState.key}, passiveName.skill.name));
         });
 
-        stats.push(React.DOM.li({key: statsState.life}, "Life: ", statsState.life));
-        stats.push(React.DOM.li({key: statsState.damage}, "Damage: ", statsState.damage));
-        stats.push(React.DOM.li({key: statsState.toughness}, "Toughness: ", statsState.toughness));
-        stats.push(React.DOM.li({key: statsState.dexterity}, "Dexterity: ", statsState.dexterity));
-        stats.push(React.DOM.li({key: statsState.vitality}, "Vitality: ", statsState.vitality));
+
+        stats.push(React.DOM.li({key: statsState.key}, "Life: ", statsState.life));
+        stats.push(React.DOM.li({key: statsState.key}, "Damage: ", statsState.damage));
+        stats.push(React.DOM.li({key: statsState.key}, "Toughness: ", statsState.toughness));
+
+
+        var statsArray = [statsState.strength, statsState.dexterity, statsState.intelligence];
+        if (classState === ('demon-hunter' || 'monk')) {
+           stats.push(React.DOM.li({key: statsState.key}, "Dexterity: ", statsState.dexterity));
+
+        } else if (classState === ('witch-doctor' || 'wizard')) {
+           stats.push(React.DOM.li({key: statsState.key}, "Intelligence: ", statsState.intelligence));
+
+        } else if (classState === ('barbarian' || 'crusader')) {
+           stats.push(React.DOM.li({key: statsState.key}, "Strength: ", statsState.strength));
+        } else {
+            console.log('new class?');
+        }
+
+        stats.push(React.DOM.li({key: statsState.key}, "Vitality: ", statsState.vitality));
 
         return (
             React.DOM.div({className: 'd3-container'},
-                React.DOM.div({className: 'd3-char-bg', style: style}),
+                React.DOM.div({className: 'd3-char-bg', key: classState.key + 'image', style: style}),
+                React.DOM.div({className: 'd3-api-url' , onClick: this.clickHandler}, this.state.url),
                 React.DOM.div({className: 'd3-data'},
-                    React.DOM.ul({className: 'base', onClick: this.clickHandler}, base),
+                    React.DOM.ul({className: 'base'}, base),
                     React.DOM.ul({className: 'skills'}, skills),
                     React.DOM.ul({className: 'passives'}, passives),
                     React.DOM.ul({className: 'stats'}, stats)
@@ -99,7 +135,9 @@ var DataWrapper = React.createClass({displayName: "DataWrapper",
 });
 
 React.render(React.createElement(DataWrapper, {
-        url: "http://eu.battle.net/api/d3/profile/Ferdi-1763/hero/44057278",
         pollInterval: 2000
     }),
     document.getElementById('profile-data'));
+
+// http://eu.battle.net/api/d3/profile/Ferdi-1763/hero/44057278
+// http://eu.battle.net/api/d3/profile/McleodNUS-2608/hero/56016042

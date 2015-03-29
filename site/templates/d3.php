@@ -8,6 +8,7 @@
     <div id="profile-data"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://fb.me/react-with-addons-0.13.1.js"></script>
+    <script src="/assets/js/react-magic-move.js"></script>
     <script src="/assets/js/updateData.js"></script>
     <script>
         function callApi(){
