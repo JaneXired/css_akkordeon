@@ -3,6 +3,25 @@
   user-select: none;
   font-weight: 600;
   font: $sans;
+  overflow: hidden;
+}
+
+.example-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
 }
 
 ul {
@@ -17,12 +36,26 @@ ul {
     animation-fill-mode: forwards;
   }
 }
-.d3-wrapper {
+.d3-char-bg {
   position: relative;
   margin: 7.5vh auto;
-  background: url('/assets/images/dh.jpg') 0 0px/405px 615px no-repeat;
   width: 405px;
   height: 615px;
+  background-size: 405px 615px;
+  animation: fadeIn 3s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  will-change: animation;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .header-center {
@@ -33,6 +66,7 @@ ul {
   top: 0;
   font-size: (32 / 16) * 1rem;
   left: 50%;
+  will-change: animation;
   animation: fromTop 1s;
   animation-fill-mode: forwards;
 }
@@ -60,16 +94,16 @@ ul {
 }
 
 .header-right,
-#stats li {
+.stats li {
   animation-name: fadein-right;
   box-shadow: -3px 3px 3px 0 dimgrey;
   text-align: left;
 }
 
 .base,
-#skills,
-#passives,
-#stats {
+.skills,
+.passives,
+.stats {
   position: fixed;
   color: black;
   z-index: 2;
@@ -83,14 +117,24 @@ ul {
   animation-name: fadein-left;
   text-align: right;
 }
+
 .base {
+  top: 7.5vh;
+  width: 31.5vw;
   left: -35%;
-  width: 30vw;
-  background: lightgrey;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  @for $i from 1 through 10 {
+    li:nth-of-type(#{$i}) {
+      animation-name: fadein-left;
+      animation-delay: $i * 1s + 4s;
+      margin-bottom: 2.5vh;
+      text-align: right;
+      background: lightgrey;
+      padding: 1.5vh;
+      border-radius: (7 / 16) * 1rem;
+    }
+  }
 }
+
 .header-left {
   left: -40vw;
 }
@@ -125,16 +169,16 @@ ul {
 }
 
 @for $i from 1 through 10 {
-  #passives,
-  #skills {
+  .passives,
+  .skills {
     li:nth-of-type(#{$i}) {
       animation-delay: $i * 1s + 4s;
     }
   }
 }
 
-#skills,
-#passives {
+.skills,
+.passives {
   width: 37.5vw;
   height: 35vh;
   bottom: -45%;
@@ -147,7 +191,15 @@ ul {
   }
 }
 
-#skills {
+.base {
+  li {
+    animation-name: fadein-bottom-left;
+    text-align: right;
+    box-shadow: 3px 3px 3px 0 dimgrey;
+  }
+}
+
+.skills {
   left: -45%;
   li {
     animation-name: fadein-bottom-left;
@@ -156,7 +208,7 @@ ul {
   }
 }
 
-#passives {
+.passives {
   right: -45%;
   li {
     animation-name: fadein-bottom-right;
@@ -165,7 +217,7 @@ ul {
   }
 }
 
-#stats {
+.stats {
   top: 7.5vh;
   width: 31.5vw;
   right: -35%;
